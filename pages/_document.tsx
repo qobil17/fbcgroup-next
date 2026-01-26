@@ -7,9 +7,7 @@ export default function Document() {
       {/* O'zbekiston uchun 'uz' yoki 'ru' tavsiya etiladi */}
       <Head>
         <meta charSet="UTF-8" />
-        <title>
-          FBC Group | Binolarni yoritish va fasad tizimlari O'zbekistonda
-        </title>
+
         <meta name="robots" content="index, follow" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
