@@ -6,14 +6,22 @@ import withLayoutMain from "../libs/components/layout/LayoutHome";
 const Home: NextPage = () => {
   return (
     <>
-      <Container>
+      <Stack>
         <Stack flexDirection={"column"}>
-          <Box>All Services</Box>
-          <Box>HPLine Services</Box>
-          <Box>AlifLight Service</Box>
-          <Box>Events</Box>
+          <Stack>
+            <Stack className="container">All Services</Stack>
+          </Stack>
+          <Stack>
+            <Stack className="container">HPLine Services</Stack>
+          </Stack>
+          <Stack>
+            <Stack className="container">AlifLight Service</Stack>
+          </Stack>
+          <Stack>
+            <Stack className="container">Events</Stack>
+          </Stack>
         </Stack>
-      </Container>
+      </Stack>
     </>
   );
 };
