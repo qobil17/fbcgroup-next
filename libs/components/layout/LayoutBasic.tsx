@@ -1,5 +1,7 @@
 import { Stack } from "@mui/system";
 import Head from "next/head";
+import Top from "../Top";
+import Footer from "../Footer";
 
 const withLayoutBasic = (Component: any) => {
   return (props: any) => {
@@ -9,13 +11,22 @@ const withLayoutBasic = (Component: any) => {
           <title>FBCGROUP</title>
         </Head>
         <Stack id="pc-wrap">
-          <Stack sx={{ background: "#81c784" }}>Header Basic</Stack>
-
+          <Stack id={"top"}>
+            <Top />
+          </Stack>
+          <Stack className={`header-basic`}>
+            <Stack className={"container"}>
+              <strong>Service check</strong>
+              <span>Sizni yana ko'rib turganimizdan hursandmiz!</span>
+            </Stack>
+          </Stack>
           <Stack id={"main"}>
             <Component {...props} />
           </Stack>
 
-          <Stack sx={{ background: "#a1887f" }}>Footer</Stack>
+          <Stack id={"footer"}>
+            <Footer />
+          </Stack>
         </Stack>
       </>
     );
