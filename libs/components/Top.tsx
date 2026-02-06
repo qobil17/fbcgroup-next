@@ -13,16 +13,16 @@ const Top = () => {
           </Box>
           <Box component={"div"} className={"router-box"}>
             <Link href={"/"}>
-              <div>Home</div>
+              <div>Bosh sahifa</div>
             </Link>
             <Link href={"/service"}>
-              <div>Service</div>
+              <div>Xizmatlar</div>
             </Link>
-            <Link href={"/help"}>
-              <div>Help</div>
+            <Link href={"/myOrder"}>
+              <div>Buyurtmalarim</div>
             </Link>
             <Link href={"/about"}>
-              <div>About Us</div>
+              <div>Biz haqimizda</div>
             </Link>
           </Box>
           <Box component={"div"} className={"user-box"}>

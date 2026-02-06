@@ -15,7 +15,9 @@ const withLayoutMain = (Component: any) => {
             <Top />
           </Stack>
           <Stack className={"header-main"}>
-            <h1>Sifatli fasad va yoritish tizimi o'rnatish</h1>
+            <div className="banner-box">
+              {/* <h1>Sifatli fasad va yoritish tizimi o'rnatish</h1> */}
+            </div>
           </Stack>
           <Stack id={"main"}>
             <Component {...props} />

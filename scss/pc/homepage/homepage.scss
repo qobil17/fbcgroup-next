@@ -1,0 +1,331 @@
+#pc-wrap {
+  .home-page {
+    position: relative;
+    width: 100%;
+    height: auto;
+    .all-services {
+      padding: 0px 76px;
+      width: 100%;
+      height: 697px;
+      display: flex;
+      //   flex-direction: row;
+      .container {
+        flex-direction: column;
+        .info-box {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .left {
+            display: flex;
+            flex-direction: column;
+            span {
+              color: #181a20;
+              font-family: $font;
+              font-size: 34px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 150%;
+              letter-spacing: -0.646px;
+              text-transform: capitalize;
+              &.white {
+                color: #ffffff;
+              }
+            }
+          }
+          .right {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            .pagination-box {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .swiper-all-prev,
+              .swiper-all-next {
+                cursor: pointer;
+                font-size: 28px;
+              }
+
+              .swiper-all-pagination {
+                display: flex;
+                align-items: center;
+              }
+
+              .swiper-pagination-bullet-active {
+                background: #000;
+              }
+            }
+          }
+        }
+        .card-box {
+          position: relative;
+          margin-top: 64px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .empty-list {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .all-service-swiper {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .all-service-slide {
+              padding-left: 8px;
+              width: 300px !important; // Match your card width
+              height: auto;
+              display: flex;
+              margin: 10px 0 10px;
+            }
+          }
+        }
+      }
+    }
+    .hpline-services {
+      padding: 0px 76px;
+      width: 100%;
+      height: 697px;
+      display: flex;
+      .container {
+        flex-direction: column;
+        .hpline-info-box {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .hpline-left {
+            display: flex;
+            flex-direction: column;
+            span {
+              color: #181a20;
+              font-family: $font;
+              font-size: 34px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 150%;
+              letter-spacing: -0.646px;
+              text-transform: capitalize;
+              &.white {
+                color: #ffffff;
+              }
+            }
+          }
+          .hpline-right {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            .hpline-pagination-box {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .swiper-hpline-prev,
+              .swiper-hpline-next {
+                cursor: pointer;
+                font-size: 28px;
+              }
+
+              .swiper-hpline-pagination {
+                display: flex;
+                align-items: center;
+              }
+
+              .swiper-pagination-bullet-active {
+                background: #000;
+              }
+            }
+          }
+        }
+        .empty-list {
+          width: 100%;
+          height: 280px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .hpline-service-swiper {
+          width: 100%;
+          height: 400px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .hpline-service-slide {
+            padding-left: 8px;
+            width: 300px !important; // Match your card width
+            height: auto;
+            display: flex;
+            margin: 10px 0 10px;
+          }
+        }
+        .hpline-card-box {
+          position: relative;
+          height: auto;
+          margin-top: 64px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+    .alif-services {
+      padding: 0px 76px;
+      width: 100%;
+      height: 697px;
+      display: flex;
+      .container {
+        flex-direction: column;
+        .alif-info-box {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .alif-left {
+            display: flex;
+            flex-direction: column;
+            span {
+              color: #181a20;
+              font-family: $font;
+              font-size: 34px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 150%;
+              letter-spacing: -0.646px;
+              text-transform: capitalize;
+              &.white {
+                color: #ffffff;
+              }
+            }
+          }
+          .alif-right {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            .alif-pagination-box {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .swiper-alif-prev,
+              .swiper-alif-next {
+                cursor: pointer;
+                font-size: 28px;
+              }
+
+              .swiper-alif-pagination {
+                display: flex;
+                align-items: center;
+              }
+
+              .swiper-pagination-bullet-active {
+                background: #000;
+              }
+            }
+          }
+        }
+        .empty-list {
+          width: 100%;
+          height: 280px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .alif-service-swiper {
+          width: 100%;
+          height: 400px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .alif-service-slide {
+            padding-left: 8px;
+            width: 300px !important; // Match your card width
+            height: auto;
+            display: flex;
+            margin: 10px 0 10px;
+          }
+        }
+        .alif-card-box {
+          position: relative;
+          height: auto;
+          margin-top: 64px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+    .service-card-box {
+      position: relative;
+      width: 520px;
+      height: 375px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      border: 1px solid rgba(196, 196, 196, 0.71);
+      overflow: hidden;
+      transition: 0.3s;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+      .card-img {
+        width: 100%;
+        height: 203px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .status {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 4px 8px;
+        border-radius: 6px;
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .card-info {
+        flex: 1;
+        padding: 20px;
+        background: #fff;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        .bott {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .view-like-box {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+}
