@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Link, Stack } from "@mui/material";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,7 +12,9 @@ const AlifLightServices = () => {
       <Stack className="container">
         <Stack className="alif-info-box">
           <Box className="alif-left">
-            <span>ALIF</span>
+            <Link href="/service/alifcards">
+              <span style={{ cursor: "pointer" }}>ALIF</span>
+            </Link>
           </Box>
           <Box className="alif-right">
             <div className="alif-pagination-box">

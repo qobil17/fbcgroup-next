@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Link, Stack } from "@mui/material";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,7 +12,9 @@ const HplineServices = () => {
       <Stack className="container">
         <Stack className="hpline-info-box">
           <Box className="hpline-left">
-            <span>HPLINE </span>
+            <Link href="/service/hplinecards">
+              <span style={{ cursor: "pointer" }}>HPLINE</span>
+            </Link>
           </Box>
           <Box className="hpline-right">
             <div className="hpline-pagination-box">

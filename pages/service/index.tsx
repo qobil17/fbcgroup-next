@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Container, Link, Stack } from "@mui/material";
 import withLayoutBasic from "../../libs/components/layout/LayoutBasic";
 import { NextPage } from "next";
 
@@ -10,12 +10,13 @@ const ServiceList: NextPage = () => {
           <strong>BIZNI XIZMATLAR</strong>
         </Box>
         <Stack className="service-boxes">
-          <Box className="service-left">
-            <span>ALIF LIGHT</span>
-          </Box>
-          <Box className="service-right">
-            <span>HPLINE</span>
-          </Box>
+          <Link href={"/service/hplinecards"} className="service-left">
+            <div>HPLINE</div>
+          </Link>
+
+          <Link href={"/service/alifcards"} className="service-right">
+            <div>ALIF</div>
+          </Link>
         </Stack>
       </Stack>
     </Stack>

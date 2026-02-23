@@ -103,6 +103,8 @@
           flex-direction: row;
           justify-content: space-between;
           .hpline-left {
+            width: 120px;
+            height: 51px;
             display: flex;
             flex-direction: column;
             span {
@@ -246,7 +248,7 @@
           justify-content: space-between;
           .alif-service-slide {
             padding-left: 8px;
-            width: 300px !important; // Match your card width
+            width: 302px !important; // Match your card width
             height: auto;
             display: flex;
             margin: 10px 0 10px;
@@ -254,6 +256,7 @@
         }
         .alif-card-box {
           position: relative;
+          width: auto;
           height: auto;
           margin-top: 64px;
           display: flex;
@@ -264,7 +267,7 @@
     }
     .service-card-box {
       position: relative;
-      width: 520px;
+      width: 510px;
       height: 375px;
       display: flex;
       flex-direction: column;
