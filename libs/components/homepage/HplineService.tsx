@@ -84,7 +84,12 @@ const HplineServices = () => {
           <Swiper
             modules={[Navigation]}
             spaceBetween={20}
-            slidesPerView={4}
+            slidesPerView={1.25}
+            breakpoints={{
+              600: { slidesPerView: 2 },
+              900: { slidesPerView: 3 },
+              1200: { slidesPerView: 4 },
+            }}
             onSwiper={(s) => {
               swiperRef.current = s;
             }}

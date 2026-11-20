@@ -21,9 +21,9 @@
       width: 100%;
       background: linear-gradient(
         135deg,
-        #0d1b2a 0%,
-        #1b2d42 60%,
-        #1976d2 100%
+        #111111 0%,
+        #111111 60%,
+        #111111 100%
       );
       padding: 60px 20px;
 
@@ -93,7 +93,7 @@
     // ================================================
     .auth-tabs {
       display: flex;
-      background: #f4f6f9;
+      background: #f7f7f7;
       border-radius: 10px;
       padding: 4px;
       margin-bottom: 32px;
@@ -161,7 +161,7 @@
 
       &:focus {
         outline: none;
-        border-color: #1976d2;
+        border-color: #111111;
         background: #ffffff;
       }
 
@@ -185,7 +185,7 @@
       height: 50px;
       border-radius: 10px;
       border: none;
-      background: #1976d2;
+      background: #111111;
       font-family: $font;
       font-size: 15px;
       font-weight: 600;
@@ -197,12 +197,12 @@
         box-shadow 0.2s;
 
       &:hover {
-        background: #1251a3;
-        box-shadow: 0 4px 16px rgba(25, 118, 210, 0.35);
+        background: #111111;
+        box-shadow: 0 4px 16px rgba(17, 17, 17, 0.35);
       }
 
       &:disabled {
-        background: #90b9e8;
+        background: #bcbcbc;
         cursor: not-allowed;
         box-shadow: none;
       }

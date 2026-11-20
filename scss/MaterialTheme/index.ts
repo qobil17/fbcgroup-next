@@ -9,15 +9,15 @@ export const light = {
   palette: {
     type: "light",
     background: {
-      default: "#f4f6f8",
+      default: "#f7f7f7",
       paper: common.white,
     },
     primary: {
       contrastText: "#ffffff",
-      main: "#E92C28",
+      main: "#111111",
     },
     secondary: {
-      main: "#1646C1",
+      main: "#555555",
     },
     text: {
       primary: "#212121",

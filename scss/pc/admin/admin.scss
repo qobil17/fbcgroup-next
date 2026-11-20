@@ -5,7 +5,7 @@
 // ── Admin Login Page ─────────────────────────────────────────
 .admin-login-page {
   min-height: 100vh;
-  background: #0f1923;
+  background: #111111;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
 }
 
 .admin-login-card {
-  background: #1e2a3a;
+  background: #111111;
   border-radius: 16px;
   padding: 44px 48px;
   width: 100%;
@@ -33,7 +33,7 @@
       letter-spacing: 1.5px;
       margin: 0;
 
-      span { color: #60a5fa; }
+      span { color: #ffffff; }
     }
 
     p {
@@ -74,7 +74,7 @@
 
     &:focus {
       outline: none;
-      border-color: #60a5fa;
+      border-color: #ffffff;
       background: rgba(255, 255, 255, 0.1);
     }
 
@@ -103,7 +103,7 @@
   &__btn {
     width: 100%;
     height: 48px;
-    background: #3b82f6;
+    background: #111111;
     border: none;
     border-radius: 10px;
     color: #ffffff;
@@ -114,13 +114,13 @@
     margin-top: 6px;
     transition: background 0.2s;
 
-    &:hover { background: #2563eb; }
-    &:disabled { background: #1d4ed8; opacity: 0.55; cursor: not-allowed; }
+    &:hover { background: #111111; }
+    &:disabled { background: #111111; opacity: 0.55; cursor: not-allowed; }
   }
 
   &__dev-hint {
-    background: rgba(96, 165, 250, 0.08);
-    border: 1px solid rgba(96, 165, 250, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     padding: 8px 14px;
     font-family: $font;
@@ -129,7 +129,7 @@
     text-align: center;
     margin-top: 16px;
 
-    strong { color: #60a5fa; }
+    strong { color: #ffffff; }
   }
 
   &__back {
@@ -159,7 +159,7 @@
   left: 0;
   width: 240px;
   height: 100vh;
-  background: #1e2a3a;
+  background: #111111;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -173,7 +173,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
     span {
-      color: #60a5fa;
+      color: #ffffff;
     }
   }
 
@@ -204,8 +204,8 @@
     }
 
     &.active {
-      background: rgba(96, 165, 250, 0.18);
-      color: #60a5fa;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
     }
   }
 
@@ -249,7 +249,7 @@
 .admin-content {
   margin-left: 240px;
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #f7f7f7;
   padding: 32px;
   flex: 1;
 }
@@ -258,7 +258,7 @@
 .admin-page-title {
   font-size: 22px;
   font-weight: 700;
-  color: #1e2a3a;
+  color: #111111;
   margin: 0 0 24px;
   font-family: $font;
 }
@@ -290,7 +290,7 @@
     font-size: 22px;
     flex-shrink: 0;
 
-    &--blue   { background: #eff6ff; }
+    &--blue   { background: #f7f7f7; }
     &--green  { background: #f0fdf4; }
     &--purple { background: #faf5ff; }
   }
@@ -298,7 +298,7 @@
   &__value {
     font-size: 30px;
     font-weight: 700;
-    color: #1e2a3a;
+    color: #111111;
     line-height: 1;
     font-family: $font;
   }
@@ -330,12 +330,12 @@
     font-family: $font;
     font-size: 16px;
     font-weight: 600;
-    color: #1e2a3a;
+    color: #111111;
   }
 }
 
 .admin-add-btn {
-  background: #3b82f6;
+  background: #111111;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -346,7 +346,7 @@
   cursor: pointer;
   transition: background 0.15s;
 
-  &:hover { background: #2563eb; }
+  &:hover { background: #111111; }
 }
 
 table.admin-table {
@@ -354,7 +354,7 @@ table.admin-table {
   border-collapse: collapse;
 
   thead tr {
-    background: #f8f9fc;
+    background: #f8f8f8;
   }
 
   th {
@@ -374,7 +374,7 @@ table.admin-table {
     font-family: $font;
     font-size: 13px;
     color: #444;
-    border-bottom: 1px solid #f5f7fa;
+    border-bottom: 1px solid #f7f7f7;
     vertical-align: middle;
   }
 
@@ -383,7 +383,7 @@ table.admin-table {
   }
 
   tbody tr:hover td {
-    background: #fafbff;
+    background: #f9f9f9;
   }
 }
 
@@ -401,7 +401,7 @@ table.admin-table {
   &--ACTIVE  { background: #f0fdf4; color: #16a34a; }
   &--FINISH  { background: #f0fdf4; color: #16a34a; }
   &--PAUSE   { background: #fefce8; color: #ca8a04; }
-  &--PROCESS { background: #eff6ff; color: #2563eb; }
+  &--PROCESS { background: #f7f7f7; color: #111111; }
   &--CANCELLED { background: #fff5f5; color: #dc2626; }
   &--BLOCK   { background: #fff5f5; color: #dc2626; }
   &--DELETE  { background: #f3f4f6; color: #9ca3af; }
@@ -429,7 +429,7 @@ table.admin-table {
 
   &:hover { opacity: 0.78; }
 
-  &--edit    { background: #eff6ff; color: #3b82f6; }
+  &--edit    { background: #f7f7f7; color: #111111; }
   &--delete  { background: #fff5f5; color: #ef4444; }
   &--block   { background: #fffbeb; color: #f59e0b; }
   &--unblock { background: #f0fdf4; color: #22c55e; }
@@ -449,7 +449,7 @@ table.admin-table {
 
   &:focus {
     outline: none;
-    border-color: #3b82f6;
+    border-color: #111111;
   }
 }
 
@@ -480,13 +480,13 @@ table.admin-table {
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 
   &:hover:not(:disabled) {
-    border-color: #3b82f6;
-    color: #3b82f6;
+    border-color: #111111;
+    color: #111111;
   }
 
   &.active {
-    background: #3b82f6;
-    border-color: #3b82f6;
+    background: #111111;
+    border-color: #111111;
     color: #ffffff;
   }
 
@@ -522,7 +522,7 @@ table.admin-table {
     font-family: $font;
     font-size: 18px;
     font-weight: 700;
-    color: #1e2a3a;
+    color: #111111;
     margin: 0 0 24px;
   }
 
@@ -534,7 +534,7 @@ table.admin-table {
   }
 
   &__cancel {
-    background: #f5f7fa;
+    background: #f7f7f7;
     color: #555;
     border: none;
     border-radius: 8px;
@@ -544,11 +544,11 @@ table.admin-table {
     font-weight: 500;
     cursor: pointer;
 
-    &:hover { background: #e8eaf0; }
+    &:hover { background: #f3f3f3; }
   }
 
   &__submit {
-    background: #3b82f6;
+    background: #111111;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -558,8 +558,8 @@ table.admin-table {
     font-weight: 600;
     cursor: pointer;
 
-    &:hover { background: #2563eb; }
-    &:disabled { background: #93c5fd; cursor: not-allowed; }
+    &:hover { background: #111111; }
+    &:disabled { background: #c8c8c8; cursor: not-allowed; }
   }
 }
 
@@ -598,7 +598,7 @@ table.admin-table {
 
   &:focus {
     outline: none;
-    border-color: #3b82f6;
+    border-color: #111111;
     background: #ffffff;
   }
 
@@ -662,9 +662,9 @@ table.admin-table {
   width: 80px;
   height: 80px;
   border-radius: 8px;
-  border: 2px dashed #bfdbfe;
-  background: #f0f7ff;
-  color: #3b82f6;
+  border: 2px dashed #dedede;
+  background: #f7f7f7;
+  color: #111111;
   font-family: $font;
   font-size: 12px;
   font-weight: 600;
@@ -674,8 +674,8 @@ table.admin-table {
   flex-shrink: 0;
 
   &:hover {
-    background: #dbeafe;
-    border-color: #93c5fd;
+    background: #f3f3f3;
+    border-color: #c8c8c8;
   }
 }
 
@@ -733,6 +733,6 @@ table.admin-table {
 .admin-btn--sm {
   padding: 3px 10px;
   font-size: 11px;
-  background: #eff6ff;
-  color: #2563eb;
+  background: #f7f7f7;
+  color: #111111;
 }

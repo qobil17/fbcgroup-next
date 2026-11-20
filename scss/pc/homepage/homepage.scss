@@ -107,7 +107,7 @@
         letter-spacing: 0.6px;
 
         &--new {
-          background: #5490ff;
+          background: #111111;
           color: #fff;
         }
         &--popular {
@@ -127,7 +127,7 @@
         font-family: $font;
         font-size: 11px;
         font-weight: 700;
-        color: #5490ff;
+        color: #111111;
         text-transform: uppercase;
         letter-spacing: 0.8px;
       }
@@ -207,7 +207,7 @@
           font-family: $font;
           font-size: 14px;
           font-weight: 500;
-          color: #5490ff;
+          color: #111111;
           text-decoration: none;
           transition: gap 0.2s ease;
 
@@ -270,10 +270,10 @@
         flex-shrink: 0;
 
         &:hover {
-          background: #5490ff;
+          background: #111111;
           color: #ffffff;
-          border-color: #5490ff;
-          box-shadow: 0 4px 14px rgba(84, 144, 255, 0.35);
+          border-color: #111111;
+          box-shadow: 0 4px 14px rgba(17, 17, 17, 0.35);
         }
 
         svg {
@@ -286,7 +286,7 @@
     // HPLINE — light background to separate visually
     // ================================================
     .hpline-services {
-      background: #f8f9ff;
+      background: #f9f9f9;
     }
   }
 
@@ -299,7 +299,7 @@
     .cards-banner {
       width: 100%;
       height: 220px;
-      background: linear-gradient(135deg, #5490ff 0%, #3a78f0 100%);
+      background: linear-gradient(135deg, #111111 0%, #111111 100%);
     }
 
     .cards-title {
@@ -337,13 +337,13 @@
       transition: all 0.2s ease;
 
       &:hover {
-        border-color: #5490ff;
-        color: #5490ff;
+        border-color: #111111;
+        color: #111111;
       }
 
       &--active {
-        background: #5490ff;
-        border-color: #5490ff;
+        background: #111111;
+        border-color: #111111;
         color: #ffffff;
 
         &:hover {
@@ -408,7 +408,7 @@
           text-transform: uppercase;
           letter-spacing: 0.6px;
 
-          &--new     { background: #5490ff; color: #fff; }
+          &--new     { background: #111111; color: #fff; }
           &--popular { background: #f44336; color: #fff; }
         }
 
@@ -423,7 +423,7 @@
           font-family: $font;
           font-size: 11px;
           font-weight: 700;
-          color: #5490ff;
+          color: #111111;
           text-transform: uppercase;
           letter-spacing: 0.8px;
         }
@@ -488,7 +488,7 @@
 
       &:focus {
         outline: none;
-        border-color: #5490ff;
+        border-color: #111111;
       }
     }
 
@@ -503,7 +503,7 @@
       padding: 0 18px;
       border-radius: 8px;
       border: none;
-      background: #5490ff;
+      background: #111111;
       font-family: $font;
       font-size: 13px;
       font-weight: 600;
@@ -512,7 +512,7 @@
       transition: background 0.2s ease;
 
       &:hover {
-        background: #3a78f0;
+        background: #111111;
       }
     }
 
@@ -546,9 +546,9 @@
       }
 
       &.active {
-        background: #1976d2 !important;
+        background: #111111 !important;
         color: #ffffff !important;
-        border-color: #1976d2 !important;
+        border-color: #111111 !important;
       }
     }
   }

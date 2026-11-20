@@ -59,7 +59,7 @@ const Footer = () => {
       <Stack className={"main"}>
         <Stack className={"left"}>
           <Box component={"div"} className={"footer-box"}>
-            <img src="/img/logo/hpline-logo.svg" alt="HPLine" className={"logo"} />
+            <img src="/img/logo/hpline-logo-white.svg" alt="HPLine" className={"logo"} />
           </Box>
 
           <Box component={"div"} className={"footer-box"}>

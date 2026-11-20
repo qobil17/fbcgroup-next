@@ -59,7 +59,7 @@ const HplineAllCards = () => {
         className="cards-banner"
         style={{
           background:
-            "linear-gradient(135deg, #28527e 0%, #336aaa 60%, #5fa3e7 100%)",
+            "linear-gradient(135deg, #111111 0%, #111111 60%, #111111 100%)",
         }}
       />
 
