@@ -2,6 +2,12 @@
 
 @import "./variables";
 @import "./reset";
+@import "./pc/order/order";
+@import "./pc/about/about";
+@import "./pc/member/member";
+@import "./pc/auth/auth";
+@import "./pc/help/help";
+@import "./pc/admin/admin";
 
 //**VERSION: PC**//
 #pc-wrap {

@@ -1,0 +1,226 @@
+#pc-wrap {
+  .auth-layout__main {
+    min-height: calc(100vh - 87px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    padding-bottom: 0;
+  }
+
+  .auth-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    // ================================================
+    // HERO BANNER — full-width, sits flush at top
+    // ================================================
+    .auth-hero {
+      width: 100%;
+      background: linear-gradient(
+        135deg,
+        #0d1b2a 0%,
+        #1b2d42 60%,
+        #1976d2 100%
+      );
+      padding: 60px 20px;
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+
+      &__tag {
+        font-family: $font;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 5px 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      &__title {
+        font-family: $font;
+        font-size: 36px;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -1px;
+        line-height: 1;
+        margin: 0;
+      }
+
+      &__slogan {
+        font-family: $font;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+
+    // ================================================
+    // FORM WRAPPER — centres the card below the banner
+    // ================================================
+    .auth-form-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 48px 20px;
+    }
+
+    // ================================================
+    // CARD
+    // ================================================
+    .auth-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+      padding: 40px 48px 48px;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    // ================================================
+    // TABS (Login / Signup toggle)
+    // ================================================
+    .auth-tabs {
+      display: flex;
+      background: #f4f6f9;
+      border-radius: 10px;
+      padding: 4px;
+      margin-bottom: 32px;
+      gap: 4px;
+
+      &__btn {
+        flex: 1;
+        height: 40px;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        font-family: $font;
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          box-shadow 0.2s;
+
+        &.active {
+          background: #ffffff;
+          color: #181a20;
+          font-weight: 600;
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        &:hover:not(.active) {
+          color: #181a20;
+        }
+      }
+    }
+
+    // ================================================
+    // FORM ELEMENTS
+    // ================================================
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+
+      label {
+        font-family: $font;
+        font-size: 13px;
+        font-weight: 600;
+        color: #444;
+      }
+    }
+
+    .form-control {
+      height: 46px;
+      padding: 0 14px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: $font;
+      font-size: 14px;
+      color: #181a20;
+      background: #fafafa;
+      width: 100%;
+      transition:
+        border-color 0.2s,
+        background 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: #1976d2;
+        background: #ffffff;
+      }
+
+      &.error {
+        border-color: #e53935;
+      }
+    }
+
+    .form-error {
+      font-family: $font;
+      font-size: 11px;
+      color: #e53935;
+      margin-top: 2px;
+    }
+
+    // ================================================
+    // SUBMIT BUTTON
+    // ================================================
+    .auth-btn {
+      width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background: #1976d2;
+      font-family: $font;
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      margin-top: 8px;
+      transition:
+        background 0.2s,
+        box-shadow 0.2s;
+
+      &:hover {
+        background: #1251a3;
+        box-shadow: 0 4px 16px rgba(25, 118, 210, 0.35);
+      }
+
+      &:disabled {
+        background: #90b9e8;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+    }
+
+    // ================================================
+    // SERVER ERROR BANNER
+    // ================================================
+    .auth-server-error {
+      background: #fce4ec;
+      border: 1px solid #ef9a9a;
+      border-radius: 8px;
+      color: #c62828;
+      font-family: $font;
+      font-size: 13px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+  }
+}

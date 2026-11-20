@@ -3,15 +3,23 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="uz">
-      {" "}
-      {/* O'zbekiston uchun 'uz' yoki 'ru' tavsiya etiladi */}
       <Head>
-        <meta charSet="UTF-8" />
+        {/*
+          Blocking inline script — runs before React hydration, before first paint.
+          Reads the locale cookie (written by _app.tsx on language change) and stores
+          it in window.__INITIAL_LOCALE__ so _app.tsx can read it synchronously on
+          the very first render, eliminating the UZ→RU flash entirely.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var V={uz:1,ru:1,en:1},l='uz',c=document.cookie.split(';').find(function(s){return s.trim().indexOf('locale=')===0;});if(c){var v=c.split('=')[1].trim();if(V[v])l=v;}if(l==='uz'&&typeof localStorage!=='undefined'){var ls=localStorage.getItem('locale');if(ls&&V[ls])l=ls;}document.documentElement.lang=l;window.__INITIAL_LOCALE__=l;}catch(e){}})();`,
+          }}
+        />
 
+        <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-        {/* SEO Keywords: fbcgroup va asosiy xizmatlar */}
         <meta
           name="keywords"
           content="fbcgroup, fbcgroup.uz, hpl panellar, yoritish tizimlari, fasad qoplamalari, lighting Uzbekistan, aliflight, hpline, binolarni yoritish"

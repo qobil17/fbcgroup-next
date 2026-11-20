@@ -1,37 +1,72 @@
-import { Box, Stack, Typography, IconButton, Divider } from "@mui/material";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye"; // Ko'rishlar uchun
-import ShareIcon from "@mui/icons-material/Share"; // Ulashish uchun
+import { useRouter } from "next/router";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { getImageUrl } from "../../../lib/uploadImage";
 
-const ServiceCard = () => {
+export interface ServiceItem {
+  _id?: string;
+  serviceTitle: string;
+  serviceImages: string[];
+  serviceCollection: string;
+  serviceViews: number;
+  createdAt: string;
+  badge?: "NEW" | "POPULAR";
+}
+
+interface Props {
+  service?: ServiceItem;
+}
+
+const MOCK: ServiceItem = {
+  serviceTitle: "No.1 Fasad Xizmati",
+  serviceImages: ["/img/service/house.webp"],
+  serviceCollection: "HPLINE",
+  serviceViews: 128,
+  createdAt: new Date().toISOString(),
+};
+
+const ServiceCard = ({ service = MOCK }: Props) => {
+  const router = useRouter();
+  const rawImage = service.serviceImages?.[0] ?? "";
+  const image = getImageUrl(rawImage) || "/img/service/house.webp";
+  const d = new Date(service.createdAt);
+  const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
+  const handleClick = () => {
+    if (service._id) {
+      router.push(`/service/${service._id}`);
+    }
+  };
+
   return (
-    <Stack className="service-card-box">
-      <Box className="card-img">
-        <img src="/img/service/house.webp" alt="service" />
-      </Box>
-
-      <div className="status">
-        <ShareIcon sx={{ color: "#fff", fontSize: 18 }} />
+    <article
+      className="service-card"
+      onClick={handleClick}
+      style={{ cursor: service._id ? "pointer" : "default" }}
+    >
+      <div className="service-card__image">
+        <img src={image} alt={service.serviceTitle} loading="lazy" />
+        {service.badge && (
+          <span
+            className={`service-card__badge service-card__badge--${service.badge.toLowerCase()}`}
+          >
+            {service.badge}
+          </span>
+        )}
       </div>
 
-      <Box className="card-info">
-        <strong className="title">No.1 FASAD XIZMATI</strong>
-
-        <Divider sx={{ mt: 1.5, mb: 2 }} />
-
-        <div className="bott">
-          <div className="service-type">HPLINE</div>
-
-          <div className="view-like-box">
-            <IconButton size="small">
-              <RemoveRedEyeIcon fontSize="small" />
-            </IconButton>
-            <Typography className="view-cnt">100</Typography>
+      <div className="service-card__body">
+        <span className="service-card__category">{service.serviceCollection}</span>
+        <h3 className="service-card__title">{service.serviceTitle}</h3>
+        <div className="service-card__footer">
+          <div className="service-card__views">
+            <RemoveRedEyeIcon />
+            <span>{service.serviceViews}</span>
           </div>
-
-          <div className="date">17.09.1996</div>
+          <span className="service-card__date">{date}</span>
         </div>
-      </Box>
-    </Stack>
+      </div>
+    </article>
   );
 };
+
 export default ServiceCard;

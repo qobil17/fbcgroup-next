@@ -1,0 +1,290 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "order": "Place an Order",
+    "about": "About Us",
+    "help": "Help",
+    "loginBtn": "Sign In",
+    "userMenuTitle": "Profile",
+    "editProfile": "Edit Profile",
+    "myOrders": "My Orders",
+    "logout": "Sign Out"
+  },
+  "footer": {
+    "tagline": "Fast, quality service",
+    "phone": "+998 00 123 45 67",
+    "followUs": "Follow us on social media",
+    "popularSearch": "Popular Searches",
+    "popular1": "Facade installation",
+    "popular2": "Lighting system installation",
+    "quickLinks": "Quick Links",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "services": "Services",
+    "contact": "Contact",
+    "faq": "FAQs",
+    "discover": "Regions",
+    "region1": "Tashkent",
+    "region2": "Fergana",
+    "region3": "Samarkand",
+    "region4": "Nukus",
+    "copyright": "© FBC Group — All rights reserved.",
+    "legal": "Privacy · Terms · Sitemap"
+  },
+  "help": {
+    "bannerTitle": "Help Centre",
+    "bannerSub": "Frequently asked questions and contact information",
+    "faqTitle": "Frequently Asked Questions",
+    "faq": [
+      {
+        "q": "What is an HPL panel and where is it used?",
+        "a": "HPL (High Pressure Laminate) is a composite cladding material manufactured under high pressure. It is widely used on building exteriors, office interiors, and commercial facades. It is moisture-resistant, long-lasting, and visually appealing."
+      },
+      {
+        "q": "How long does facade installation take?",
+        "a": "Installation time depends on the size and complexity of the building. Small buildings (up to 500 m²) typically take 2–3 weeks; large commercial projects can take 1–3 months. An exact timeline is provided after reviewing the project."
+      },
+      {
+        "q": "What is the difference between granite and seranit cladding?",
+        "a": "Granite is a natural stone with high durability and a unique appearance, but it is heavier and more expensive. Seranit is a modern ceramic-granite composite — lighter, more affordable, and available in a wider range of colours. Both are excellent choices for facades."
+      },
+      {
+        "q": "What are the advantages of LED lighting over traditional lighting?",
+        "a": "LED lighting consumes 70–80% less electricity, lasts up to 10 times longer (up to 50,000 hours), produces no heat, and requires minimal maintenance. This delivers significant savings over the long term."
+      },
+      {
+        "q": "What is Alikafon?",
+        "a": "Alikafon is an aluminium composite panel consisting of two thin aluminium sheets bonded to a polyethylene core. It is lightweight, easy to work with, modern in appearance, and resistant to weathering. It is commonly used in facades and signage structures."
+      },
+      {
+        "q": "What do I need to place an order?",
+        "a": "To place an order, simply provide the approximate area or number of light points, the type of service (facade or lighting), and your phone number. Our specialist will contact you to clarify the details and prepare a free estimate."
+      },
+      {
+        "q": "What is the warranty period?",
+        "a": "All installation work comes with a minimum 2-year workmanship warranty. Material warranties for HPL panels and granite cladding can extend to 10–15 years. LED lighting systems carry a 3-year warranty."
+      },
+      {
+        "q": "Why is emergency lighting necessary?",
+        "a": "Emergency lighting is an independent system that activates automatically during a power failure, enabling the safe evacuation of a building. It is legally mandatory for offices, shopping centres, and public buildings."
+      },
+      {
+        "q": "Is maintenance provided after installation?",
+        "a": "Yes, we provide free technical maintenance throughout the warranty period. After the warranty expires, a separate service agreement can be arranged at competitive rates."
+      },
+      {
+        "q": "Can I find out the project cost in advance?",
+        "a": "Yes — after inspecting the site, our specialist will prepare a free estimate. Simply call us or fill in the order form and we will respond within 24 hours."
+      }
+    ],
+    "contactTitle": "Contact Us",
+    "phone": "+998 71 123 45 67",
+    "phoneLabel": "Phone",
+    "email": "info@fbcgroup.uz",
+    "emailLabel": "Email",
+    "hours": "Mon–Fri: 09:00–18:00",
+    "hoursLabel": "Working Hours",
+    "quickLinksTitle": "Quick Links",
+    "quickLinks": [
+      { "label": "Place an Order", "href": "/order" },
+      { "label": "Services", "href": "/service" },
+      { "label": "About Us", "href": "/about" }
+    ]
+  },
+  "order": {
+    "bannerTitle": "Place an Order",
+    "bannerSub": "Select a service type and fill in your details",
+    "formTitle": "Order Form",
+    "fields": {
+      "serviceCollection": "Service Type",
+      "serviceDetail": "Product Type",
+      "serviceType": "Service Form",
+      "serviceArea": "Work Area",
+      "phone": "Phone Number",
+      "estimatedSquare": "Estimated Area (m²)",
+      "estimatedPoints": "Estimated Number of Points"
+    },
+    "options": {
+      "select": "— Select —",
+      "selectFirst": "— Select a service type first —",
+      "hpline": "HPLINE",
+      "alif": "ALIF Light",
+      "hpl": "HPL Panel",
+      "alikafon": "Alikafon",
+      "granite": "Granite",
+      "seranit": "Seranit",
+      "led": "LED Lighting",
+      "decorative": "Decorative Lighting",
+      "emergency": "Emergency Lighting",
+      "delivery": "Delivery",
+      "installation": "Installation",
+      "fullProject": "Full Project",
+      "exterior": "Exterior",
+      "interior": "Interior"
+    },
+    "placeholders": {
+      "phone": "+998 90 123 45 67",
+      "optional": "Optional"
+    },
+    "errors": {
+      "serviceCollection": "Please select a service type",
+      "serviceDetail": "Please select a product type",
+      "serviceType": "Please select a service form",
+      "serviceArea": "Please select a work area",
+      "phone": "Please enter a valid phone number (7–20 characters)"
+    },
+    "submit": "Place Order",
+    "success": {
+      "icon": "✓",
+      "title": "Order Submitted!",
+      "text": "We will get in touch with you shortly.",
+      "newOrder": "New Order"
+    }
+  },
+  "about": {
+    "hero": {
+      "tag": "Uzbekistan's #1 Facade & Lighting",
+      "title": "FBC Group",
+      "slogan": "Transforming buildings with modern facade and lighting solutions."
+    },
+    "section": {
+      "heading": "About Us",
+      "body1": "<strong>FBC Group</strong> is the leading company in Uzbekistan specialising in facade cladding systems and professional lighting solutions. Since 2015, we have transformed hundreds of commercial, industrial, and residential buildings across the country.",
+      "body2": "Our <strong>HPLINE</strong> division transforms building exteriors with HPL panels, granite and seranit cladding, and Alikafon materials. A facade is more than aesthetics — it is a critical layer protecting a building from heat, moisture, and external influences.",
+      "body3": "Our <strong>ALIF Light</strong> division designs and installs LED lighting, decorative fixtures, and emergency lighting systems. Energy-efficient, long-lasting, and visually stunning lighting solutions are our speciality."
+    },
+    "stats": {
+      "projects": "500+",
+      "projectsLabel": "Completed Projects",
+      "years": "10+",
+      "yearsLabel": "Years of Experience",
+      "regions": "14",
+      "regionsLabel": "Regions Covered"
+    },
+    "gallery": {
+      "heading": "Our Projects",
+      "sub": "A selection of completed work",
+      "label1": "HPLINE · Facade",
+      "label2": "ALIF · LED Lighting",
+      "label3": "HPLINE · Granite"
+    },
+    "values": {
+      "heading": "Our Values",
+      "quality": {
+        "title": "Quality Guarantee",
+        "text": "Every project uses only certified materials and modern technologies. The result — a durable and reliable solution."
+      },
+      "team": {
+        "title": "Professional Team",
+        "text": "Our team of specialists with 10 years of experience handles every stage — from facade installation to lighting system design."
+      },
+      "innovation": {
+        "title": "Innovative Solutions",
+        "text": "From HPLINE facade panels to ALIF LED lighting systems — we adapt the latest industry solutions to your project."
+      },
+      "client": {
+        "title": "Client Satisfaction",
+        "text": "Ongoing communication, full transparency at every project stage, and on-time delivery are our non-negotiable principles."
+      }
+    }
+  },
+  "auth": {
+    "loginTab": "Sign In",
+    "signupTab": "Sign Up",
+    "bannerTitle": "FBC GROUP",
+    "loginBannerSub": "Sign in to your account",
+    "signupBannerSub": "Create a new account",
+    "nickLabel": "Login (nick) *",
+    "nickPlaceholder": "Username",
+    "nickPlaceholderSignup": "Username (3–15 chars)",
+    "passwordLabel": "Password *",
+    "passwordPlaceholder": "••••••••",
+    "passwordPlaceholderSignup": "••••••••  (5–12 chars)",
+    "phoneLabel": "Phone Number *",
+    "confirmLabel": "Confirm Password *",
+    "confirmPlaceholder": "Re-enter password",
+    "loginBtn": "Sign In",
+    "signupBtn": "Sign Up",
+    "loading": "Please wait...",
+    "errors": {
+      "nick": "Username must be 3–15 characters",
+      "password": "Password must be 5–12 characters",
+      "phone": "Please enter a valid phone number",
+      "confirm": "Passwords do not match",
+      "server": "An error occurred. Please try again."
+    }
+  },
+  "member": {
+    "edit": {
+      "title": "Edit Profile",
+      "avatarLabel": "Enter image URL",
+      "imageLabel": "Profile Image URL",
+      "nickLabel": "Username",
+      "nickPlaceholder": "Your name (3–12 chars)",
+      "phoneLabel": "Phone Number",
+      "addressLabel": "Address",
+      "addressPlaceholder": "City, district...",
+      "descLabel": "Additional Info",
+      "descPlaceholder": "About yourself...",
+      "saveBtn": "Save",
+      "saving": "Saving...",
+      "saved": "Saved ✓"
+    },
+    "orders": {
+      "title": "My Orders",
+      "total": "Total: {count}",
+      "empty": "No orders yet",
+      "cancelBtn": "Cancel",
+      "confirmCancel": "Are you sure you want to cancel this order?",
+      "labelService": "Service",
+      "labelArea": "Area",
+      "labelPhone": "Tel",
+      "labelDate": "Date",
+      "status": {
+        "PAUSE": "Pending",
+        "PROCESS": "In Progress",
+        "FINISH": "Completed",
+        "CANCELLED": "Cancelled"
+      },
+      "serviceType": {
+        "DELIVERY": "Delivery",
+        "INSTALLATION": "Installation",
+        "FULL_PROJECT": "Full Project"
+      },
+      "serviceArea": {
+        "EXTERIOR": "Exterior",
+        "INTERIOR": "Interior"
+      }
+    }
+  },
+  "home": {
+    "allServices": "All Services",
+    "hplineServices": "HPLINE Services",
+    "alifServices": "ALIF Light Services",
+    "viewAll": "View All"
+  },
+  "service": {
+    "ourServices": "Our Services",
+    "loading": "Loading...",
+    "notFound": "Service not found.",
+    "back": "Back",
+    "labelDetail": "Detail",
+    "labelType": "Type",
+    "labelArea": "Area",
+    "orderBtn": "Place an Order",
+    "typeDelivery": "Delivery",
+    "typeInstallation": "Installation",
+    "typeFullProject": "Full Project",
+    "areaExterior": "Exterior",
+    "areaInterior": "Interior"
+  },
+  "cards": {
+    "newest": "Newest first",
+    "oldest": "Oldest first",
+    "prev": "Previous",
+    "next": "Next",
+    "noCards": "No services found",
+    "loading": "Loading..."
+  }
+}

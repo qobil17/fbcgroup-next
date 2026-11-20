@@ -1,58 +1,118 @@
-import { Box, Link, Stack } from "@mui/material";
+import { useRef } from "react";
+import { Stack } from "@mui/material";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import { useQuery, gql } from "@apollo/client";
+import "swiper/css";
 import ServiceCard from "./ServiceCard";
-import { useState } from "react";
+
+const GET_HPLINE_SERVICES = gql`
+  query GetHplineServicesHome($input: ServicesInquiry!) {
+    getServices(input: $input) {
+      list {
+        _id
+        serviceCollection
+        serviceTitle
+        serviceType
+        serviceArea
+        serviceImages
+        serviceViews
+        createdAt
+      }
+    }
+  }
+`;
 
 const HplineServices = () => {
-  const [hplineServices] = useState<number[]>([1, 2, 3, 4, 5, 6, 7]);
+  const t = useTranslations("home");
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  const { data, loading } = useQuery(GET_HPLINE_SERVICES, {
+    variables: {
+      input: {
+        page: 1,
+        limit: 8,
+        search: { serviceCollection: "HPLINE", serviceStatus: "ACTIVE" },
+      },
+    },
+  });
+
+  const services = data?.getServices?.list ?? [];
+
+  if (loading) {
+    return (
+      <Stack className="hpline-services">
+        <Stack className="container">
+          <div className="section-header">
+            <div className="skeleton-line" style={{ width: "200px", height: "28px" }} />
+          </div>
+          <div className="section-skeleton-grid">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="service-card-skeleton">
+                <div className="service-card-skeleton__img" />
+                <div className="service-card-skeleton__body">
+                  <div className="service-card-skeleton__line service-card-skeleton__line--sm" />
+                  <div className="service-card-skeleton__line" />
+                  <div className="service-card-skeleton__line service-card-skeleton__line--md" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Stack>
+      </Stack>
+    );
+  }
+
+  if (services.length === 0) return null;
+
   return (
     <Stack className="hpline-services">
       <Stack className="container">
-        <Stack className="hpline-info-box">
-          <Box className="hpline-left">
-            <Link href="/service/hplinecards">
-              <span style={{ cursor: "pointer" }}>HPLINE</span>
-            </Link>
-          </Box>
-          <Box className="hpline-right">
-            <div className="hpline-pagination-box">
-              <WestIcon className="swiper-hpline-prev" />
-              <EastIcon className="swiper-hpline-next" />
-            </div>
-          </Box>
-        </Stack>
-        <Stack className="hpline-card-box">
-          {hplineServices.length === 0 ? (
-            <Box className="empty-list">Xizmatlar mavjud emas</Box>
-          ) : (
-            <Swiper
-              className="hpline-service-swiper"
-              spaceBetween={20}
-              slidesPerView={4}
-              navigation={{
-                nextEl: ".swiper-hpline-next",
-                prevEl: ".swiper-hpline-prev",
-              }}
-              breakpoints={{
-                0: { slidesPerView: 1 },
-                600: { slidesPerView: 2 },
-                900: { slidesPerView: 3 },
-                1200: { slidesPerView: 4 },
-              }}
-              pagination={{
-                el: ".swiper-hpline-pagination",
-              }}
-            >
-              {hplineServices.map((_, index) => (
-                <SwiperSlide className="hpline-service-slide">
-                  <ServiceCard />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
-        </Stack>
+        <div className="section-header">
+          <h2 className="section-title">{t("hplineServices")}</h2>
+          <Link href="/service/hplinecards" className="section-link">
+            {t("viewAll")} <EastIcon />
+          </Link>
+        </div>
+
+        <div className="section-body">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={4}
+            onSwiper={(s) => {
+              swiperRef.current = s;
+            }}
+          >
+            {services.map((svc: any) => (
+              <SwiperSlide key={svc._id}>
+                <ServiceCard service={svc} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        <div className="section-nav">
+          <button
+            className="nav-btn"
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Oldingi"
+          >
+            <WestIcon />
+          </button>
+          <button
+            className="nav-btn"
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Keyingi"
+          >
+            <EastIcon />
+          </button>
+        </div>
       </Stack>
     </Stack>
   );

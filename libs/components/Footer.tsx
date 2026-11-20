@@ -1,72 +1,112 @@
 import { Box, Stack } from "@mui/material";
+import { useTranslations } from "next-intl";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import XIcon from "@mui/icons-material/X";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 const Footer = () => {
+  const device = useDeviceDetect();
+  const t = useTranslations("footer");
+
+  if (device === "mobile") {
+    return (
+      <div className="mobile-footer">
+        <div className="mobile-footer__top">
+          <img src="/img/logo/logoWhite.svg" alt="FBC Group" className="mobile-footer__logo" />
+          <p className="mobile-footer__tagline">{t("tagline")}</p>
+          <p className="mobile-footer__phone">{t("phone")}</p>
+          <div className="mobile-footer__social">
+            <FacebookOutlinedIcon />
+            <TelegramIcon />
+            <InstagramIcon />
+            <XIcon />
+          </div>
+        </div>
+
+        <div className="mobile-footer__links">
+          <div className="mobile-footer__col">
+            <strong>{t("popularSearch")}</strong>
+            <span>{t("popular1")}</span>
+            <span>{t("popular2")}</span>
+          </div>
+          <div className="mobile-footer__col">
+            <strong>{t("quickLinks")}</strong>
+            <span>{t("terms")}</span>
+            <span>{t("privacy")}</span>
+            <span>{t("services")}</span>
+          </div>
+          <div className="mobile-footer__col">
+            <strong>{t("discover")}</strong>
+            <span>{t("region1")}</span>
+            <span>{t("region2")}</span>
+            <span>{t("region3")}</span>
+            <span>{t("region4")}</span>
+          </div>
+        </div>
+
+        <div className="mobile-footer__bottom">
+          <span>{t("copyright")}</span>
+          <span>{t("legal")}</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Stack className={"footer-container"}>
       <Stack className={"main"}>
         <Stack className={"left"}>
           <Box component={"div"} className={"footer-box"}>
-            <img src="/img/logo/logoWhite.svg" alt="" className={"logo"} />
+            <img src="/img/logo/logoWhite.svg" alt="FBC Group" className={"logo"} />
           </Box>
+
           <Box component={"div"} className={"footer-box"}>
-            <span>Tez sifatli xizmat</span>
-            <p>+998001234567</p>
+            <span>{t("tagline")}</span>
+            <p>{t("phone")}</p>
           </Box>
+
           <Box component={"div"} className={"footer-box"}>
-            <span>Mutaxasis</span>
-            <p>+998001234567</p>
-            <span>yordami</span>
-          </Box>
-          <Box component={"div"} className={"footer-box"}>
-            <p>Bizni ijtimoiy tarmoqlarda kuzatib boring</p>
+            <p>{t("followUs")}</p>
             <div className={"media-box"}>
               <FacebookOutlinedIcon />
               <TelegramIcon />
               <InstagramIcon />
-              <TwitterIcon />
+              <XIcon />
             </div>
           </Box>
         </Stack>
+
         <Stack className={"right"}>
-          <Box component={"div"} className={"top"}>
-            <strong>keep yourself up to date</strong>
-            <div>
-              <input type="text" placeholder={"Your Email"} />
-              <span>Subscribe</span>
-            </div>
-          </Box>
           <Box component={"div"} className={"bottom"}>
             <div>
-              <strong>Popular Search</strong>
-              <span>Fasad o'rnatish</span>
-              <span>Yoritish tizimi o'rnatish</span>
+              <strong>{t("popularSearch")}</strong>
+              <span>{t("popular1")}</span>
+              <span>{t("popular2")}</span>
             </div>
             <div>
-              <strong>Quick Links</strong>
-              <span>Terms of Use</span>
-              <span>Privacy Policy</span>
-              <span>Pricing Plans</span>
-              <span>Our Services</span>
-              <span>Contact Support</span>
-              <span>FAQs</span>
+              <strong>{t("quickLinks")}</strong>
+              <span>{t("terms")}</span>
+              <span>{t("privacy")}</span>
+              <span>{t("services")}</span>
+              <span>{t("contact")}</span>
+              <span>{t("faq")}</span>
             </div>
             <div>
-              <strong>Discover</strong>
-              <span>Toshkent</span>
-              <span>Farg'ona</span>
-              <span>Samarqand</span>
-              <span>Nukus</span>
+              <strong>{t("discover")}</strong>
+              <span>{t("region1")}</span>
+              <span>{t("region2")}</span>
+              <span>{t("region3")}</span>
+              <span>{t("region4")}</span>
             </div>
           </Box>
         </Stack>
       </Stack>
+
       <Stack className={"second"}>
-        <span>© FBC Group - All rights reserved. FBC Group </span>
-        <span>Privacy · Terms · Sitemap</span>
+        <span>{t("copyright")}</span>
+        <span>{t("legal")}</span>
       </Stack>
     </Stack>
   );
