@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useLayoutEffect, useState, ReactNode } from "react";
-import { decodeJWT } from "./gql";
+import { decodeJWT, isTokenExpired, clearSession } from "./gql";
 
 // Runs synchronously before paint on client; falls back to useEffect on server (SSR-safe)
 const useIsomorphicLayoutEffect =
@@ -42,6 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useIsomorphicLayoutEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (!token) { setAuthReady(true); return; }
+    if (isTokenExpired(token)) { clearSession(true); setAuthReady(true); return; }
     const payload = decodeJWT(token);
     if (!payload) { setAuthReady(true); return; }
     setAuthMemberState({

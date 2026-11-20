@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { decodeJWT } from "../../../lib/gql";
+import { decodeJWT, isTokenExpired, clearSession, consumeSessionExpired } from "../../../lib/gql";
 
 const GQL_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3007/graphql";
 
@@ -49,8 +49,14 @@ const AdminLogin = () => {
 
   // If already logged in as admin, skip directly to dashboard
   useEffect(() => {
+    if (consumeSessionExpired()) setServerError("Sessiya muddati tugadi. Iltimos, qayta kiring.");
     const token = localStorage.getItem("accessToken");
     if (!token) return;
+    if (isTokenExpired(token)) {
+      clearSession();
+      setServerError("Sessiya muddati tugadi. Iltimos, qayta kiring.");
+      return;
+    }
     const memberType = localStorage.getItem("memberType");
     const payload = decodeJWT(token);
     const isAdmin =

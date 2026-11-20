@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { decodeJWT } from "../../../lib/gql";
+import { decodeJWT, isTokenExpired, clearSession } from "../../../lib/gql";
 
 interface Props {
   children: React.ReactNode;
@@ -23,6 +23,11 @@ const AdminLayout = ({ children }: Props) => {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (!token) {
+      router.replace("/admin/login");
+      return;
+    }
+    if (isTokenExpired(token)) {
+      clearSession(true);
       router.replace("/admin/login");
       return;
     }
