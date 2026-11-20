@@ -9,7 +9,8 @@
     "userMenuTitle": "Profil",
     "editProfile": "Profilni tahrirlash",
     "myOrders": "Buyurtmalarim",
-    "logout": "Chiqish"
+    "logout": "Chiqish",
+    "projects": "Loyihalar"
   },
   "footer": {
     "tagline": "Tez sifatli xizmat",
@@ -307,5 +308,29 @@
     "subtitle": "HPL panellar, granit va alyukobond fasadlar hamda zamonaviy LED yoritish — loyihalashdan o'rnatishgacha bir jamoada.",
     "ctaServices": "Xizmatlarni ko'rish",
     "ctaOrder": "Buyurtma berish"
+  },
+  "projects": {
+    "title": "Qilingan ishlar",
+    "subtitle": "Amalga oshirgan loyihalarimiz: rasm va qisqacha hisobot",
+    "latest": "So'nggi loyihalar",
+    "viewAll": "Barcha loyihalar",
+    "all": "Barchasi",
+    "empty": "Hozircha loyihalar qo'shilmagan",
+    "loading": "Yuklanmoqda...",
+    "notFound": "Loyiha topilmadi",
+    "back": "Barcha loyihalar",
+    "location": "Manzil",
+    "date": "Sana",
+    "direction": "Yo'nalish",
+    "photos": "Rasmlar",
+    "views": "Ko'rishlar",
+    "orderCta": "Shunday loyiha kerakmi?",
+    "orderBtn": "Buyurtma berish",
+    "prev": "Oldingi",
+    "next": "Keyingi"
+  },
+  "partners": {
+    "title": "Hamkorlarimiz",
+    "subtitle": "Biz bilan ishlagan va ishonch bildirgan kompaniyalar"
   }
 }

@@ -246,7 +246,7 @@ const MemberEditPage = () => {
               <input
                 ref={fileInputRef}
                 type="file"
-                accept="image/png,image/jpg,image/jpeg"
+                accept="image/png,image/jpeg,image/webp"
                 style={{ display: "none" }}
                 onChange={handleAvatarUpload}
                 disabled={uploading}

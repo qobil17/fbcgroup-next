@@ -12,7 +12,7 @@ const UPLOAD_BASE =
  */
 export async function uploadImage(
   file: File,
-  target: "members" | "services",
+  target: "members" | "services" | "projects" | "partners",
   token: string
 ): Promise<string> {
   const operations = JSON.stringify({
@@ -39,7 +39,8 @@ export async function uploadImage(
     body: formData,
   });
 
-  const json = await res.json();
+  if (res.status === 413) throw new Error(`Rasm hajmi ${MAX_FILE_SIZE_MB} MB dan oshmasligi kerak`);
+  const json = await res.json().catch(() => ({ errors: [{ message: "Server javobini o'qib bo'lmadi" }] }));
   if (json.errors?.length) throw new Error(json.errors[0].message);
   const path: string = json.data?.imageUploader;
   if (!path) throw new Error("Upload failed");
@@ -58,6 +59,45 @@ export function getImageUrl(path: string): string {
   return `${UPLOAD_BASE}/${path}`;
 }
 
-export const ALLOWED_FORMATS = "PNG, JPG, JPEG";
+// Backend (apps/fbcgroup-api/src/libs/image.ts) bilan bir xil qoidalar.
+// Server rasmni o'zi siqadi (WebP, uzun tomoni 2400px gacha) — sifat ko'zga sezilarli o'zgarmaydi.
+export const ALLOWED_FORMATS = "JPG, PNG, WEBP";
 export const MAX_FILE_SIZE_MB = 15;
-export const ALLOWED_MIME = ["image/png", "image/jpg", "image/jpeg"];
+export const ALLOWED_MIME = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
+export const ACCEPT_ATTR = "image/png,image/jpeg,image/webp";
+
+/** Faylni yuborishdan oldin tekshiradi; muammo bo'lsa o'zbekcha xabar qaytaradi. */
+export function validateImageFile(file: File): string | null {
+  if (/heic|heif/i.test(file.type) || /\.(heic|heif)$/i.test(file.name)) {
+    return `${file.name}: iPhone HEIC formati qabul qilinmaydi. Rasmni JPG qilib saqlang (iPhone: Sozlamalar → Kamera → Formatlar → "Eng mos").`;
+  }
+  if (!ALLOWED_MIME.includes(file.type)) return `${file.name}: faqat ${ALLOWED_FORMATS} formatlar qabul qilinadi`;
+  if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+    return `${file.name}: hajmi ${(file.size / 1048576).toFixed(1)} MB — ${MAX_FILE_SIZE_MB} MB dan oshmasligi kerak`;
+  }
+  return null;
+}
+
+/** Bir nechta rasmni ketma-ket yuklaydi; har biridan keyin onProgress chaqiriladi. */
+export async function uploadImages(
+  files: File[],
+  target: "members" | "services" | "projects" | "partners",
+  token: string,
+  onProgress?: (done: number, total: number) => void
+): Promise<string[]> {
+  for (const f of files) {
+    const err = validateImageFile(f);
+    if (err) throw new Error(err);
+  }
+  const urls: string[] = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    try {
+      urls.push(await uploadImage(f, target, token));
+    } catch (e: any) {
+      throw new Error(`${f.name}: ${e.message}`);
+    }
+    onProgress?.(i + 1, files.length);
+  }
+  return urls;
+}

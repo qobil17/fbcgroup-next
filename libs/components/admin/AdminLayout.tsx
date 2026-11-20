@@ -10,6 +10,8 @@ interface Props {
 const NAV_ITEMS = [
   { label: "Dashboard", href: "/admin", icon: "⊞" },
   { label: "Xizmatlar", href: "/admin/services", icon: "◈" },
+  { label: "Qilingan ishlar", href: "/admin/projects", icon: "▦" },
+  { label: "Hamkorlar", href: "/admin/partners", icon: "◇" },
   { label: "Buyurtmalar", href: "/admin/orders", icon: "◉" },
   { label: "Foydalanuvchilar", href: "/admin/members", icon: "◎" },
   { label: "Chatbot Leads", href: "/admin/chatbot-leads", icon: "📱" },

@@ -155,6 +155,9 @@ const Top = () => {
                     {t("order")}
                   </Link>
                 )}
+                <Link href="/projects" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>
+                  {t("projects")}
+                </Link>
                 <Link href="/about" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>
                   {t("about")}
                 </Link>
@@ -243,6 +246,7 @@ const Top = () => {
           <Box component={"div"} className={"router-box"} suppressHydrationWarning>
             <Link href={"/"}><div className={router.pathname === "/" ? "active" : ""} suppressHydrationWarning>{t("home")}</div></Link>
             <Link href={"/service"}><div className={router.pathname.startsWith("/service") ? "active" : ""} suppressHydrationWarning>{t("services")}</div></Link>
+            <Link href={"/projects"}><div className={router.pathname.startsWith("/projects") ? "active" : ""} suppressHydrationWarning>{t("projects")}</div></Link>
             <Link href={"/about"}><div className={router.pathname.startsWith("/about") ? "active" : ""} suppressHydrationWarning>{t("about")}</div></Link>
             <Link href={"/help"}><div className={router.pathname.startsWith("/help") ? "active" : ""} suppressHydrationWarning>{t("help")}</div></Link>
           </Box>
