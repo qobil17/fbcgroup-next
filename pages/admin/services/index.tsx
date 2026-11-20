@@ -14,6 +14,10 @@ interface Service {
   serviceArea: string;
   servicePrice: number;
   serviceDesc?: string;
+  serviceTitleRu?: string | null;
+  serviceTitleEn?: string | null;
+  serviceDescRu?: string | null;
+  serviceDescEn?: string | null;
   serviceImages: string[];
   serviceViews: number;
   createdAt: string;
@@ -27,6 +31,10 @@ interface ServiceForm {
   serviceDetail: string;
   serviceArea: string;
   serviceDesc: string;
+  serviceTitleRu: string;
+  serviceTitleEn: string;
+  serviceDescRu: string;
+  serviceDescEn: string;
   serviceImages: string[]; // array of uploaded URLs
   serviceStatus: string;
 }
@@ -38,6 +46,10 @@ const INITIAL_FORM: ServiceForm = {
   serviceDetail: "HPL",
   serviceArea: "EXTERIOR",
   serviceDesc: "",
+  serviceTitleRu: "",
+  serviceTitleEn: "",
+  serviceDescRu: "",
+  serviceDescEn: "",
   serviceImages: [],
   serviceStatus: "ACTIVE",
 };
@@ -61,6 +73,10 @@ const GET_SERVICES = `
         serviceArea
         servicePrice
         serviceDesc
+        serviceTitleRu
+        serviceTitleEn
+        serviceDescRu
+        serviceDescEn
         serviceImages
         serviceViews
         createdAt
@@ -117,6 +133,7 @@ const AdminServices = () => {
   const [submitting, setSubmitting] = useState(false);
   const [modalError, setModalError] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [lang, setLang] = useState<"uz" | "ru" | "en">("uz");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_LIMIT));
@@ -189,12 +206,14 @@ const AdminServices = () => {
 
   // ── Modal handlers ─────────────────────────────────────────
   const openCreate = () => {
+    setLang("uz");
     setForm(INITIAL_FORM);
     setModalError("");
     setModalOpen(true);
   };
 
   const openEdit = (s: Service) => {
+    setLang("uz");
     setForm({
       _id: s._id,
       serviceCollection: s.serviceCollection,
@@ -203,6 +222,10 @@ const AdminServices = () => {
       serviceDetail: s.serviceDetail,
       serviceArea: s.serviceArea,
       serviceDesc: s.serviceDesc ?? "",
+      serviceTitleRu: s.serviceTitleRu ?? "",
+      serviceTitleEn: s.serviceTitleEn ?? "",
+      serviceDescRu: s.serviceDescRu ?? "",
+      serviceDescEn: s.serviceDescEn ?? "",
       serviceImages: s.serviceImages ?? [],
       serviceStatus: s.serviceStatus,
     });
@@ -246,6 +269,10 @@ const AdminServices = () => {
             serviceDetail: form.serviceDetail,
             serviceArea: form.serviceArea,
             serviceDesc: form.serviceDesc || undefined,
+            serviceTitleRu: form.serviceTitleRu.trim(),
+            serviceTitleEn: form.serviceTitleEn.trim(),
+            serviceDescRu: form.serviceDescRu.trim(),
+            serviceDescEn: form.serviceDescEn.trim(),
             serviceImages: form.serviceImages,
             serviceStatus: form.serviceStatus,
           },
@@ -259,6 +286,10 @@ const AdminServices = () => {
             serviceDetail: form.serviceDetail,
             serviceArea: form.serviceArea,
             serviceDesc: form.serviceDesc || undefined,
+            serviceTitleRu: form.serviceTitleRu.trim(),
+            serviceTitleEn: form.serviceTitleEn.trim(),
+            serviceDescRu: form.serviceDescRu.trim(),
+            serviceDescEn: form.serviceDescEn.trim(),
             serviceImages: form.serviceImages,
           },
         }, token);
@@ -398,10 +429,54 @@ const AdminServices = () => {
                 </div>
               </div>
 
-              <div className="admin-form-group">
-                <label>Nomi * (3–200 belgi)</label>
-                <input name="serviceTitle" type="text" className="admin-form-control" placeholder="Xizmat nomi" value={form.serviceTitle} onChange={handleFormChange} maxLength={200} />
+              {/* Nom va tavsif — uch tilda. RU/EN bo'sh qolsa saytda o'zbekchasi ko'rinadi */}
+              <div className="admin-lang-tabs">
+                {(["uz", "ru", "en"] as const).map((l) => {
+                  const filled = l === "uz" ? !!form.serviceTitle.trim() : !!(l === "ru" ? form.serviceTitleRu : form.serviceTitleEn).trim();
+                  return (
+                    <button type="button" key={l} className={`admin-lang-tab${lang === l ? " active" : ""}`} onClick={() => setLang(l)}>
+                      {l.toUpperCase()} {l === "uz" ? "*" : filled ? "✓" : ""}
+                    </button>
+                  );
+                })}
               </div>
+              {lang === "uz" ? (
+                <>
+                  <div className="admin-form-group">
+                    <label>Nomi (o'zbekcha) * (3–200 belgi)</label>
+                    <input name="serviceTitle" type="text" className="admin-form-control" placeholder="Xizmat nomi" value={form.serviceTitle} onChange={handleFormChange} maxLength={200} />
+                  </div>
+                  <div className="admin-form-group">
+                    <label>Tavsif (o'zbekcha, ixtiyoriy, min 5 belgi)</label>
+                    <textarea name="serviceDesc" className="admin-form-control admin-form-control--textarea" placeholder="Xizmat haqida qo'shimcha ma'lumot..." value={form.serviceDesc} onChange={handleFormChange} />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="admin-form-group">
+                    <label>{lang === "ru" ? "Nomi (ruscha)" : "Nomi (inglizcha)"} — bo'sh qolsa o'zbekchasi ko'rinadi</label>
+                    <input
+                      name={lang === "ru" ? "serviceTitleRu" : "serviceTitleEn"}
+                      type="text"
+                      className="admin-form-control"
+                      placeholder={form.serviceTitle || (lang === "ru" ? "Название услуги" : "Service name")}
+                      value={lang === "ru" ? form.serviceTitleRu : form.serviceTitleEn}
+                      onChange={handleFormChange}
+                      maxLength={200}
+                    />
+                  </div>
+                  <div className="admin-form-group">
+                    <label>{lang === "ru" ? "Tavsif (ruscha)" : "Tavsif (inglizcha)"}</label>
+                    <textarea
+                      name={lang === "ru" ? "serviceDescRu" : "serviceDescEn"}
+                      className="admin-form-control admin-form-control--textarea"
+                      placeholder={lang === "ru" ? "Описание услуги..." : "Service description..."}
+                      value={lang === "ru" ? form.serviceDescRu : form.serviceDescEn}
+                      onChange={handleFormChange}
+                    />
+                  </div>
+                </>
+              )}
 
               <div className="admin-form-row">
                 <div className="admin-form-group">
@@ -459,10 +534,6 @@ const AdminServices = () => {
                 </div>
               </div>
 
-              <div className="admin-form-group">
-                <label>Tavsif (ixtiyoriy, min 5 belgi)</label>
-                <textarea name="serviceDesc" className="admin-form-control admin-form-control--textarea" placeholder="Xizmat haqida qo'shimcha ma'lumot..." value={form.serviceDesc} onChange={handleFormChange} />
-              </div>
 
               <div className="admin-modal__actions">
                 <button type="button" className="admin-modal__cancel" onClick={() => setModalOpen(false)}>Bekor qilish</button>

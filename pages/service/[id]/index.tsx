@@ -9,6 +9,8 @@ import { useTranslations } from "next-intl";
 import withLayoutBasic from "../../../libs/components/layout/LayoutBasic";
 import { getImageUrl } from "../../../lib/uploadImage";
 import useDeviceDetect from "../../../libs/hooks/useDeviceDetect";
+import { useLocaleContext } from "../../../lib/LocaleContext";
+import { serviceTitle, serviceDesc } from "../../../lib/localize";
 
 const GET_SERVICE = gql`
   query GetServiceDetail($serviceId: String!) {
@@ -16,12 +18,16 @@ const GET_SERVICE = gql`
       _id
       serviceCollection
       serviceTitle
+      serviceTitleRu
+      serviceTitleEn
       serviceType
       serviceStatus
       serviceDetail
       serviceArea
       servicePrice
       serviceDesc
+      serviceDescRu
+      serviceDescEn
       serviceImages
       serviceViews
       createdAt
@@ -33,6 +39,7 @@ const ServiceDetailPage = () => {
   const device = useDeviceDetect();
   const router = useRouter();
   const t = useTranslations("service");
+  const { locale } = useLocaleContext();
   const { id } = router.query;
   const [activeImg, setActiveImg] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -50,6 +57,8 @@ const ServiceDetailPage = () => {
   });
 
   const service = data?.getService;
+  const title = service ? serviceTitle(service, locale) : "";
+  const desc = service ? serviceDesc(service, locale) : "";
 
   if (loading && !data) {
     return (
@@ -87,9 +96,9 @@ const ServiceDetailPage = () => {
           <div className="service-detail__gallery">
             <div className="service-detail__main-img" onClick={() => mainImage && setLightboxOpen(true)}>
               {mainImage ? (
-                <img src={mainImage} alt={service.serviceTitle} />
+                <img src={mainImage} alt={title} />
               ) : (
-                <img src="/img/service/house.webp" alt={service.serviceTitle} />
+                <img src="/img/service/house.webp" alt={title} />
               )}
             </div>
             {images.length > 1 && (
@@ -100,7 +109,7 @@ const ServiceDetailPage = () => {
                     className={`service-detail__thumb${activeImg === i ? " active" : ""}`}
                     onClick={() => setActiveImg(i)}
                   >
-                    <img src={getImageUrl(img)} alt={`${service.serviceTitle} ${i + 1}`} />
+                    <img src={getImageUrl(img)} alt={`${title} ${i + 1}`} />
                   </button>
                 ))}
               </div>
@@ -110,7 +119,7 @@ const ServiceDetailPage = () => {
           {/* Info */}
           <div className="service-detail__info">
             <span className="service-detail__collection">{service.serviceCollection}</span>
-            <h1 className="service-detail__title">{service.serviceTitle}</h1>
+            <h1 className="service-detail__title">{title}</h1>
 
             <div className="service-detail__meta">
               <div className="service-detail__meta-row">
@@ -136,8 +145,8 @@ const ServiceDetailPage = () => {
               </div>
               </div>
 
-            {service.serviceDesc && (
-              <p className="service-detail__desc">{service.serviceDesc}</p>
+            {desc && (
+              <p className="service-detail__desc">{desc}</p>
             )}
 
             <div className="service-detail__footer">
@@ -165,7 +174,7 @@ const ServiceDetailPage = () => {
           <img
             className="lightbox__img"
             src={mainImage}
-            alt={service.serviceTitle}
+            alt={title}
             onClick={(e) => e.stopPropagation()}
           />
         </div>

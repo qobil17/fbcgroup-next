@@ -15,6 +15,8 @@ const GET_HPLINE_SERVICES = gql`
         _id
         serviceCollection
         serviceTitle
+        serviceTitleRu
+        serviceTitleEn
         serviceType
         serviceArea
         serviceImages

@@ -1,10 +1,14 @@
 import { useRouter } from "next/router";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { getImageUrl } from "../../../lib/uploadImage";
+import { useLocaleContext } from "../../../lib/LocaleContext";
+import { serviceTitle } from "../../../lib/localize";
 
 export interface ServiceItem {
   _id?: string;
   serviceTitle: string;
+  serviceTitleRu?: string | null;
+  serviceTitleEn?: string | null;
   serviceImages: string[];
   serviceCollection: string;
   serviceViews: number;
@@ -26,6 +30,8 @@ const MOCK: ServiceItem = {
 
 const ServiceCard = ({ service = MOCK }: Props) => {
   const router = useRouter();
+  const { locale } = useLocaleContext();
+  const title = serviceTitle(service, locale);
   const rawImage = service.serviceImages?.[0] ?? "";
   const image = getImageUrl(rawImage) || "/img/service/house.webp";
   const d = new Date(service.createdAt);
@@ -44,7 +50,7 @@ const ServiceCard = ({ service = MOCK }: Props) => {
       style={{ cursor: service._id ? "pointer" : "default" }}
     >
       <div className="service-card__image">
-        <img src={image} alt={service.serviceTitle} loading="lazy" />
+        <img src={image} alt={title} loading="lazy" />
         {service.badge && (
           <span
             className={`service-card__badge service-card__badge--${service.badge.toLowerCase()}`}
@@ -56,7 +62,7 @@ const ServiceCard = ({ service = MOCK }: Props) => {
 
       <div className="service-card__body">
         <span className="service-card__category">{service.serviceCollection}</span>
-        <h3 className="service-card__title">{service.serviceTitle}</h3>
+        <h3 className="service-card__title">{title}</h3>
         <div className="service-card__footer">
           <div className="service-card__views">
             <RemoveRedEyeIcon />

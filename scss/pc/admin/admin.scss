@@ -827,3 +827,28 @@ button.admin-badge {
   border: 0;
   cursor: pointer;
 }
+
+// ── Til tablari (xizmat nomi/tavsifi) ─────────────────────────
+.admin-lang-tabs {
+  display: flex;
+  gap: 6px;
+  margin: 4px 0 12px;
+}
+
+.admin-lang-tab {
+  padding: 6px 14px;
+  border: 1px solid #ece8e1;
+  border-radius: 999px;
+  background: #fff;
+  color: $ink;
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &.active {
+    background: $ink;
+    border-color: $ink;
+    color: #fff;
+  }
+}
