@@ -449,12 +449,15 @@ const AdminServices = () => {
                   <div className="admin-form-group">
                     <label>Tavsif (o'zbekcha, ixtiyoriy, min 5 belgi)</label>
                     <textarea name="serviceDesc" className="admin-form-control admin-form-control--textarea" placeholder="Xizmat haqida qo'shimcha ma'lumot..." value={form.serviceDesc} onChange={handleFormChange} />
+                    <small className="admin-hint">
+                      Faqat o'zbekcha yozing — ruscha va inglizcha tarjima saqlaganda avtomatik qilinadi. Tarjimani tekshirish yoki tuzatish uchun RU / EN tablarini oching.
+                    </small>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="admin-form-group">
-                    <label>{lang === "ru" ? "Nomi (ruscha)" : "Nomi (inglizcha)"} — bo'sh qolsa o'zbekchasi ko'rinadi</label>
+                    <label>{lang === "ru" ? "Nomi (ruscha)" : "Nomi (inglizcha)"} — bo'sh qoldirsangiz, saqlashda avtomatik tarjima qilinadi</label>
                     <input
                       name={lang === "ru" ? "serviceTitleRu" : "serviceTitleEn"}
                       type="text"
@@ -466,7 +469,7 @@ const AdminServices = () => {
                     />
                   </div>
                   <div className="admin-form-group">
-                    <label>{lang === "ru" ? "Tavsif (ruscha)" : "Tavsif (inglizcha)"}</label>
+                    <label>{lang === "ru" ? "Tavsif (ruscha)" : "Tavsif (inglizcha)"} — qo'lda yozilgan tarjima o'zgartirilmaydi</label>
                     <textarea
                       name={lang === "ru" ? "serviceDescRu" : "serviceDescEn"}
                       className="admin-form-control admin-form-control--textarea"
