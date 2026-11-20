@@ -19,6 +19,8 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/img/logo/hpline-logo.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         <meta
           name="keywords"

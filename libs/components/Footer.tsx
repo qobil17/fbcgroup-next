@@ -14,7 +14,7 @@ const Footer = () => {
     return (
       <div className="mobile-footer">
         <div className="mobile-footer__top">
-          <img src="/img/logo/logoWhite.svg" alt="FBC Group" className="mobile-footer__logo" />
+          <img src="/img/logo/hpline-logo-white.svg" alt="HPLine" className="mobile-footer__logo" />
           <p className="mobile-footer__tagline">{t("tagline")}</p>
           <p className="mobile-footer__phone">{t("phone")}</p>
           <div className="mobile-footer__social">
@@ -59,7 +59,7 @@ const Footer = () => {
       <Stack className={"main"}>
         <Stack className={"left"}>
           <Box component={"div"} className={"footer-box"}>
-            <img src="/img/logo/logoWhite.svg" alt="FBC Group" className={"logo"} />
+            <img src="/img/logo/hpline-logo.svg" alt="HPLine" className={"logo"} />
           </Box>
 
           <Box component={"div"} className={"footer-box"}>

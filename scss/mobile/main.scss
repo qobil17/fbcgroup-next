@@ -23,12 +23,14 @@
     box-sizing: border-box;
 
     &__logo {
-      font-family: $font;
-      font-size: 16px;
-      font-weight: 700;
-      color: #181a20;
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: 1px;
+      img {
+        display: block;
+        height: 36px;
+        width: auto;
+      }
     }
 
     &__right {
@@ -259,7 +261,8 @@
     }
 
     &__logo {
-      width: 110px;
+      width: 96px;
+      height: auto;
       margin-bottom: 4px;
     }
 

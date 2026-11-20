@@ -95,7 +95,7 @@ const Top = () => {
       <>
         <div className="mobile-navbar">
           <Link href="/" className="mobile-navbar__logo">
-            FBC GROUP
+            <img src="/img/logo/hpline-mark.svg" alt="HPLine" />
           </Link>
           <div className="mobile-navbar__right">
             <button
@@ -230,7 +230,7 @@ const Top = () => {
           {/* Logo */}
           <Box component={"div"} className={"logo-box"}>
             <Link href={"/"}>
-              <span className="logo-text">FBC GROUP</span>
+              <img className="logo-img" src="/img/logo/hpline-mark.svg" alt="HPLine" />
             </Link>
           </Box>
 

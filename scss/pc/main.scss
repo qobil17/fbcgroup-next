@@ -34,6 +34,14 @@
           align-items: center;
           justify-content: space-between;
           .logo-box {
+            display: flex;
+            align-items: center;
+            .logo-img {
+              display: block;
+              height: 46px;
+              width: auto;
+              cursor: pointer;
+            }
             .logo-text {
               font-family: $font;
               font-size: 18px;
@@ -464,8 +472,8 @@
 
         .footer-box {
           .logo {
-            width: 140px;
-            filter: brightness(0) invert(0); // Agar logotip aslida qora bo'lsa, uni oq qiladi
+            width: 120px;
+            height: auto;
           }
 
           span {
