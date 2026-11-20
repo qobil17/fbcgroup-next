@@ -122,6 +122,24 @@ const fmt = (iso: string) => {
 };
 
 // ── Component ─────────────────────────────────────────────────
+// Nom (3+ belgi) va tavsif (5+ belgi) uch tilda majburiy
+const LANG_FIELDS: { lang: "uz" | "ru" | "en"; title: keyof ServiceForm; desc: keyof ServiceForm; name: string }[] = [
+  { lang: "uz", title: "serviceTitle", desc: "serviceDesc", name: "o'zbekcha" },
+  { lang: "ru", title: "serviceTitleRu", desc: "serviceDescRu", name: "ruscha" },
+  { lang: "en", title: "serviceTitleEn", desc: "serviceDescEn", name: "inglizcha" },
+];
+
+function missingTranslations(form: ServiceForm) {
+  const out: { lang: "uz" | "ru" | "en"; label: string }[] = [];
+  for (const f of LANG_FIELDS) {
+    if (String(form[f.title] ?? "").trim().length < 3) out.push({ lang: f.lang, label: `nomi (${f.name})` });
+    if (String(form[f.desc] ?? "").trim().length < 5) out.push({ lang: f.lang, label: `tavsif (${f.name})` });
+  }
+  return out;
+}
+
+const langFilled = (form: ServiceForm, lang: "uz" | "ru" | "en") => !missingTranslations(form).some((m) => m.lang === lang);
+
 const AdminServices = () => {
   const [services, setServices] = useState<Service[]>([]);
   const [total, setTotal] = useState(0);
@@ -251,7 +269,12 @@ const AdminServices = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.serviceTitle.trim()) { setModalError("Nomi majburiy"); return; }
+    const missing = missingTranslations(form);
+    if (missing.length) {
+      setLang(missing[0].lang);
+      setModalError(`To'ldiring: ${missing.map((m) => m.label).join(", ")}`);
+      return;
+    }
     if (form.serviceImages.length === 0) { setModalError("Kamida 1 ta rasm yuklang"); return; }
 
     setSubmitting(true);
@@ -268,7 +291,7 @@ const AdminServices = () => {
             serviceTitle: form.serviceTitle,
             serviceDetail: form.serviceDetail,
             serviceArea: form.serviceArea,
-            serviceDesc: form.serviceDesc || undefined,
+            serviceDesc: form.serviceDesc.trim(),
             serviceTitleRu: form.serviceTitleRu.trim(),
             serviceTitleEn: form.serviceTitleEn.trim(),
             serviceDescRu: form.serviceDescRu.trim(),
@@ -285,7 +308,7 @@ const AdminServices = () => {
             serviceTitle: form.serviceTitle,
             serviceDetail: form.serviceDetail,
             serviceArea: form.serviceArea,
-            serviceDesc: form.serviceDesc || undefined,
+            serviceDesc: form.serviceDesc.trim(),
             serviceTitleRu: form.serviceTitleRu.trim(),
             serviceTitleEn: form.serviceTitleEn.trim(),
             serviceDescRu: form.serviceDescRu.trim(),
@@ -432,13 +455,20 @@ const AdminServices = () => {
               {/* Nom va tavsif — uch tilda. RU/EN bo'sh qolsa saytda o'zbekchasi ko'rinadi */}
               <div className="admin-lang-tabs">
                 {(["uz", "ru", "en"] as const).map((l) => {
-                  const filled = l === "uz" ? !!form.serviceTitle.trim() : !!(l === "ru" ? form.serviceTitleRu : form.serviceTitleEn).trim();
+                  const filled = langFilled(form, l);
                   return (
-                    <button type="button" key={l} className={`admin-lang-tab${lang === l ? " active" : ""}`} onClick={() => setLang(l)}>
-                      {l.toUpperCase()} {l === "uz" ? "*" : filled ? "✓" : ""}
+                    <button
+                      type="button"
+                      key={l}
+                      className={`admin-lang-tab${lang === l ? " active" : ""}${filled ? " filled" : " missing"}`}
+                      onClick={() => setLang(l)}
+                      title={filled ? "To'ldirilgan" : "Nom va tavsifni to'ldiring"}
+                    >
+                      {l.toUpperCase()} {filled ? "✓" : "*"}
                     </button>
                   );
                 })}
+                <span className="admin-lang-note">Nom va tavsif uchala tilda majburiy</span>
               </div>
               {lang === "uz" ? (
                 <>
@@ -447,26 +477,26 @@ const AdminServices = () => {
                     <input name="serviceTitle" type="text" className="admin-form-control" placeholder="Xizmat nomi" value={form.serviceTitle} onChange={handleFormChange} maxLength={200} />
                   </div>
                   <div className="admin-form-group">
-                    <label>Tavsif (o'zbekcha, ixtiyoriy, min 5 belgi)</label>
+                    <label>Tavsif (o'zbekcha) * (kamida 5 belgi)</label>
                     <textarea name="serviceDesc" className="admin-form-control admin-form-control--textarea" placeholder="Xizmat haqida qo'shimcha ma'lumot..." value={form.serviceDesc} onChange={handleFormChange} />
                   </div>
                 </>
               ) : (
                 <>
                   <div className="admin-form-group">
-                    <label>{lang === "ru" ? "Nomi (ruscha)" : "Nomi (inglizcha)"} — bo'sh qolsa o'zbekchasi ko'rinadi</label>
+                    <label>{lang === "ru" ? "Nomi (ruscha)" : "Nomi (inglizcha)"} * (3–200 belgi)</label>
                     <input
                       name={lang === "ru" ? "serviceTitleRu" : "serviceTitleEn"}
                       type="text"
                       className="admin-form-control"
-                      placeholder={form.serviceTitle || (lang === "ru" ? "Название услуги" : "Service name")}
+                      placeholder={lang === "ru" ? "Название услуги" : "Service name"}
                       value={lang === "ru" ? form.serviceTitleRu : form.serviceTitleEn}
                       onChange={handleFormChange}
                       maxLength={200}
                     />
                   </div>
                   <div className="admin-form-group">
-                    <label>{lang === "ru" ? "Tavsif (ruscha)" : "Tavsif (inglizcha)"}</label>
+                    <label>{lang === "ru" ? "Tavsif (ruscha)" : "Tavsif (inglizcha)"} * (kamida 5 belgi)</label>
                     <textarea
                       name={lang === "ru" ? "serviceDescRu" : "serviceDescEn"}
                       className="admin-form-control admin-form-control--textarea"

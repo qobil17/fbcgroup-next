@@ -852,3 +852,21 @@ button.admin-badge {
     color: #fff;
   }
 }
+
+.admin-lang-tab.missing:not(.active) {
+  border-color: #f2c1bc;
+  color: #b42318;
+}
+.admin-lang-tab.filled:not(.active) {
+  border-color: #cfe8d6;
+  color: #1b7a3d;
+}
+.admin-lang-tabs {
+  align-items: center;
+}
+.admin-lang-note {
+  margin-left: 6px;
+  font-family: $font;
+  font-size: 12px;
+  color: #8a867f;
+}
