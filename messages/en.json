@@ -87,9 +87,18 @@
     "hoursLabel": "Working Hours",
     "quickLinksTitle": "Quick Links",
     "quickLinks": [
-      { "label": "Place an Order", "href": "/order" },
-      { "label": "Services", "href": "/service" },
-      { "label": "About Us", "href": "/about" }
+      {
+        "label": "Place an Order",
+        "href": "/order"
+      },
+      {
+        "label": "Services",
+        "href": "/service"
+      },
+      {
+        "label": "About Us",
+        "href": "/about"
+      }
     ]
   },
   "order": {
@@ -277,7 +286,12 @@
     "typeInstallation": "Installation",
     "typeFullProject": "Full Project",
     "areaExterior": "Exterior",
-    "areaInterior": "Interior"
+    "areaInterior": "Interior",
+    "hplineTag": "Facade cladding",
+    "hplineDesc": "HPL panels, granite, porcelain stoneware and aluminium composite for looks and protection.",
+    "alifTag": "Lighting systems",
+    "alifDesc": "Facade, interior and decorative LED lighting plus emergency lights.",
+    "view": "View"
   },
   "cards": {
     "newest": "Newest first",
@@ -286,5 +300,12 @@
     "next": "Next",
     "noCards": "No services found",
     "loading": "Loading..."
+  },
+  "hero": {
+    "eyebrow": "Facades and lighting across Uzbekistan",
+    "title": "A new look for your buildings",
+    "subtitle": "HPL panels, granite, aluminium composite facades and modern LED lighting — from design to installation by one team.",
+    "ctaServices": "View services",
+    "ctaOrder": "Request a quote"
   }
 }

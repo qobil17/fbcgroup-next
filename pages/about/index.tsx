@@ -9,4 +9,4 @@ const AboutPage = () => {
   return <About locale={locale} />;
 };
 
-export default withLayoutBasic(AboutPage);
+export default withLayoutBasic(AboutPage, { subtitleKey: "about.hero.slogan" });

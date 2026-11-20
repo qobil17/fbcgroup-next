@@ -1,16 +1,19 @@
 import { useLayoutEffect, useState } from 'react';
 
-const useDeviceDetect = (): string => {
-  const [device, setDevice] = useState('desktop');
+// Cached after the first detection so later page navigations render the right layout immediately
+let cachedDevice: 'mobile' | 'desktop' | null = null;
 
-  // useLayoutEffect (not useEffect) runs synchronously before paint,
-  // so we never render the wrong layout for one frame.
-  // Empty dependency [] — only needs to run once on mount.
+const useDeviceDetect = (): string => {
+  const [device, setDevice] = useState<string>(cachedDevice ?? 'desktop');
+
+  // useLayoutEffect runs before paint, so the first page never shows the wrong layout either
   useLayoutEffect(() => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-    setDevice(isMobile ? 'mobile' : 'desktop');
+    if (!cachedDevice) {
+      cachedDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        ? 'mobile'
+        : 'desktop';
+    }
+    if (device !== cachedDevice) setDevice(cachedDevice);
   }, []);
 
   return device;

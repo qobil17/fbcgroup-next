@@ -30,4 +30,4 @@ const HelpPage = () => {
   );
 };
 
-export default withLayoutBasic(HelpPage);
+export default withLayoutBasic(HelpPage, { subtitleKey: "help.bannerSub" });

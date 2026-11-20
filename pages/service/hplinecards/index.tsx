@@ -55,18 +55,10 @@ const HplineAllCards = () => {
 
   return (
     <Stack className="service-cards-page">
-      <div
-        className="cards-banner"
-        style={{
-          background:
-            "linear-gradient(135deg, #111111 0%, #111111 60%, #111111 100%)",
-        }}
-      />
 
-      <h1 className="cards-title">{tHome("hplineServices")}</h1>
 
       <div className="container">
-        {loading ? (
+        {loading && !data ? (
           <div className="cards-loading">{tCards("loading")}</div>
         ) : (
           <div className="cards-grid">

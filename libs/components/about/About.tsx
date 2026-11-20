@@ -164,16 +164,6 @@ const About = ({ locale }: AboutProps) => {
 
   return (
     <div className="about-page">
-      {/* ── Hero ────────────────────────────────────────── */}
-      <section className="about-hero">
-        <div className="container">
-          <div className="about-hero__content">
-            <span className="about-hero__tag">{c.hero.tag}</span>
-            <h1 className="about-hero__title">{c.hero.title}</h1>
-            <p className="about-hero__slogan">{c.hero.slogan}</p>
-          </div>
-        </div>
-      </section>
 
       {/* ── About ───────────────────────────────────────── */}
       <section className="about-section">

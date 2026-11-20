@@ -49,11 +49,6 @@ const Help = ({ bannerTitle, bannerSub, content }: HelpProps) => {
 
   return (
     <div className="help-page">
-      {/* Banner */}
-      <div className="help-banner">
-        <h1 className="help-banner__title">{bannerTitle}</h1>
-        <p className="help-banner__sub">{bannerSub}</p>
-      </div>
       {/* FAQ */}
       <section className="help-faq">
         <div className="help-container">

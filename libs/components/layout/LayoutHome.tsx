@@ -4,6 +4,7 @@ import Top from "../Top";
 import Footer from "../Footer";
 import useDeviceDetect from "../../hooks/useDeviceDetect";
 import ChatbotWidget from "../chatbot/ChatbotWidget";
+import HomeHero from "../banner/HomeHero";
 
 const withLayoutMain = (Component: any) => {
   return (props: any) => {
@@ -20,6 +21,7 @@ const withLayoutMain = (Component: any) => {
               <Top />
             </Stack>
             <Stack id={"main"}>
+              <HomeHero mobile />
               <Component {...props} />
             </Stack>
             <Stack id={"footer"}>
@@ -39,9 +41,7 @@ const withLayoutMain = (Component: any) => {
             <Stack id={"top"}>
               <Top />
             </Stack>
-            <Stack className={"header-main"}>
-              <div className="banner-box"></div>
-            </Stack>
+            <HomeHero />
             <Stack id={"main"}>
               <Component {...props} />
             </Stack>

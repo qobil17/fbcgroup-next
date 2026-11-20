@@ -44,7 +44,7 @@ const HplineServices = () => {
 
   const services = data?.getServices?.list ?? [];
 
-  if (loading) {
+  if (loading && !data) {
     return (
       <Stack className="hpline-services">
         <Stack className="container">

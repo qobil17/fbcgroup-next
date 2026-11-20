@@ -4,6 +4,7 @@
 @import "../pc/homepage/homepage.scss";
 @import "../pc/service/service.scss";
 @import "../pc/chatbot/chatbot.scss";
+@import "../pc/banner/banner.scss";
 #pc-wrap {
   #top {
     .navbar {
@@ -65,17 +66,31 @@
               font-weight: 600;
               cursor: pointer;
 
-              padding: 6px 14px;
-              border-radius: 5px;
-              color: #000000;
+              padding: 8px 14px;
+              color: $ink;
               background-color: transparent;
+              transition: color 0.2s ease;
 
-              transition: background-color 0.2s ease, color 0.2s ease;
+              &::after {
+                content: "";
+                position: absolute;
+                left: 14px;
+                right: 14px;
+                bottom: 2px;
+                height: 2px;
+                border-radius: 2px;
+                background: $accent;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.25s ease;
+              }
 
-              &:hover,
-              &.active {
-                background-color: rgb(17, 17, 17);
-                color: #ffffff;
+              &:hover {
+                color: $accent-dark;
+              }
+              &:hover::after,
+              &.active::after {
+                transform: scaleX(1);
               }
             }
           }
@@ -96,7 +111,7 @@
               white-space: nowrap;
 
               &:hover {
-                background-color: rgb(17, 17, 17);
+                background-color: $ink;
                 color: #ffffff;
               }
             }
@@ -131,7 +146,7 @@
                 cursor: pointer;
                 transition: all 0.3s ease;
                 &:hover {
-                  background-color: rgb(17, 17, 17);
+                  background-color: $ink;
                   color: #ffffff;
                   .lang-trigger__arrow {
                     color: #ffffff;
@@ -175,11 +190,11 @@
                   cursor: pointer;
                   transition: background 0.15s;
                   &:hover {
-                    background: #f5f5f5;
+                    background: #f5f3ef;
                   }
                   &.active {
                     font-weight: 700;
-                    color: rgb(17, 17, 17);
+                    color: $ink;
                   }
                 }
               }
@@ -208,22 +223,22 @@
             }
 
             .auth-nav-btn {
-              background: #111111;
+              background: $ink;
               border: none;
-              border-radius: 8px;
+              border-radius: 999px;
               color: #ffffff;
               font-family: $font;
-              font-size: 13px;
-              font-weight: 600;
-              padding: 8px 20px;
+              font-size: 14px;
+              font-weight: 500;
+              padding: 10px 24px;
               cursor: pointer;
               transition:
                 background 0.2s,
                 box-shadow 0.2s;
               white-space: nowrap;
               &:hover {
-                background: #111111;
-                box-shadow: 0 3px 12px rgba(17, 17, 17, 0.35);
+                background: $ink;
+                box-shadow: 0 3px 12px rgba(28, 28, 30, 0.35);
               }
             }
 
@@ -239,7 +254,7 @@
                 border: 2px solid #e0e0e0;
                 transition: border-color 0.2s;
                 &:hover {
-                  border-color: rgb(17, 17, 17);
+                  border-color: $ink;
                 }
                 img {
                   width: 100%;
@@ -267,7 +282,7 @@
                 align-items: center;
                 gap: 10px;
                 padding: 14px 16px;
-                background: #f9f9f9;
+                background: #f9f7f3;
               }
 
               &__avatar {
@@ -290,7 +305,7 @@
 
               &__divider {
                 height: 1px;
-                background: #f0f0f0;
+                background: #f0eeea;
               }
 
               &__item {
@@ -309,7 +324,7 @@
                 cursor: pointer;
                 transition: background 0.15s;
                 &:hover {
-                  background: #f5f5f5;
+                  background: #f5f3ef;
                 }
                 &--logout {
                   color: #e53935;
@@ -447,7 +462,7 @@
 
   #footer {
     .footer-container {
-      background-color: #111111;
+      background-color: $ink;
       color: $text-main;
       padding: 80px 0 40px 0;
       font-family: "Inter", sans-serif;
@@ -568,8 +583,8 @@
               transition: 0.3s;
               border-radius: 6px;
               &:hover {
-                background-color: #111111;
-                color: #f6f6f6;
+                background-color: $ink;
+                color: #f6f4f0;
               }
             }
           }

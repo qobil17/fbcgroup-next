@@ -165,10 +165,6 @@ const OrderPage = () => {
 
   return (
     <Stack className="order-page">
-      <div className="order-banner">
-        <h1 className="order-banner__title">{t("bannerTitle")}</h1>
-        <p className="order-banner__sub">{t("bannerSub")}</p>
-      </div>
 
       <div className="order-form-wrap">
         <div className="order-card">
@@ -343,4 +339,4 @@ const OrderPage = () => {
   );
 };
 
-export default withLayoutBasic(OrderPage, { showHero: false });
+export default withLayoutBasic(OrderPage, { subtitleKey: "order.bannerSub" });

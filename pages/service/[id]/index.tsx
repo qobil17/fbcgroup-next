@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Stack } from "@mui/material";
 import { useRouter } from "next/router";
@@ -50,7 +51,7 @@ const ServiceDetailPage = () => {
 
   const service = data?.getService;
 
-  if (loading) {
+  if (loading && !data) {
     return (
       <Stack className="service-detail-page">
         <div className="container" style={{ paddingTop: 64, textAlign: "center" }}>
@@ -147,9 +148,9 @@ const ServiceDetailPage = () => {
               <span className="service-detail__date">{dateStr}</span>
             </div>
 
-            <a href="/order" className="service-detail__order-btn">
+            <Link href="/order" className="service-detail__order-btn">
               {t("orderBtn")}
-            </a>
+            </Link>
 
             <button className="service-detail__back" onClick={() => router.back()}>
               <WestIcon fontSize="small" /> {t("back")}

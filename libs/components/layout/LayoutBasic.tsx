@@ -4,13 +4,15 @@ import Top from "../Top";
 import Footer from "../Footer";
 import useDeviceDetect from "../../hooks/useDeviceDetect";
 import ChatbotWidget from "../chatbot/ChatbotWidget";
+import PageBanner from "../banner/PageBanner";
 
 interface LayoutBasicOptions {
   showHero?: boolean;
+  subtitleKey?: string; // banner ostidagi qisqa matn (tarjima kaliti)
 }
 
 const withLayoutBasic = (Component: any, options: LayoutBasicOptions = {}) => {
-  const { showHero = true } = options;
+  const { showHero = true, subtitleKey } = options;
 
   return (props: any) => {
     const device = useDeviceDetect();
@@ -26,6 +28,7 @@ const withLayoutBasic = (Component: any, options: LayoutBasicOptions = {}) => {
               <Top />
             </Stack>
             <Stack id={"main"}>
+              {showHero && <PageBanner mobile subtitleKey={subtitleKey} />}
               <Component {...props} />
             </Stack>
             <Stack id={"footer"}>
@@ -45,14 +48,7 @@ const withLayoutBasic = (Component: any, options: LayoutBasicOptions = {}) => {
             <Stack id={"top"}>
               <Top />
             </Stack>
-            {showHero && (
-              <Stack className={`header-basic`}>
-                <Stack className={"container"}>
-                  <strong>Service check</strong>
-                  <span>Sizni yana ko'rib turganimizdan hursandmiz!</span>
-                </Stack>
-              </Stack>
-            )}
+            {showHero && <PageBanner subtitleKey={subtitleKey} />}
             <Stack id={"main"}>
               <Component {...props} />
             </Stack>

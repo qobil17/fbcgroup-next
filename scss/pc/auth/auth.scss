@@ -21,9 +21,9 @@
       width: 100%;
       background: linear-gradient(
         135deg,
-        #111111 0%,
-        #111111 60%,
-        #111111 100%
+        $ink 0%,
+        $ink 60%,
+        $ink 100%
       );
       padding: 60px 20px;
 
@@ -93,7 +93,7 @@
     // ================================================
     .auth-tabs {
       display: flex;
-      background: #f7f7f7;
+      background: #f7f5f1;
       border-radius: 10px;
       padding: 4px;
       margin-bottom: 32px;
@@ -153,7 +153,7 @@
       font-family: $font;
       font-size: 14px;
       color: #181a20;
-      background: #fafafa;
+      background: #faf8f4;
       width: 100%;
       transition:
         border-color 0.2s,
@@ -161,7 +161,7 @@
 
       &:focus {
         outline: none;
-        border-color: #111111;
+        border-color: $ink;
         background: #ffffff;
       }
 
@@ -185,7 +185,7 @@
       height: 50px;
       border-radius: 10px;
       border: none;
-      background: #111111;
+      background: $ink;
       font-family: $font;
       font-size: 15px;
       font-weight: 600;
@@ -197,8 +197,8 @@
         box-shadow 0.2s;
 
       &:hover {
-        background: #111111;
-        box-shadow: 0 4px 16px rgba(17, 17, 17, 0.35);
+        background: $ink;
+        box-shadow: 0 4px 16px rgba(28, 28, 30, 0.35);
       }
 
       &:disabled {

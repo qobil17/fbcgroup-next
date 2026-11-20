@@ -86,9 +86,9 @@
         color: #181a20;
 
         &:hover:not(:disabled) {
-          background: rgb(17, 17, 17);
+          background: $ink;
           color: #ffffff;
-          border-color: rgb(17, 17, 17);
+          border-color: $ink;
         }
 
         &:disabled {
@@ -134,17 +134,17 @@
       font-size: 13px;
       font-weight: 500;
       color: #444;
-      background: #f7f7f7;
-      border: 1px solid #f2f2f2;
+      background: #f7f5f1;
+      border: 1px solid #f2f0ec;
       border-radius: 8px;
       cursor: pointer;
       margin-bottom: 16px;
       padding: 7px 14px;
       transition: background 0.15s, color 0.15s;
       &:hover {
-        background: #111111;
+        background: $ink;
         color: #ffffff;
-        border-color: #111111;
+        border-color: $ink;
       }
       svg { font-size: 16px; }
     }
@@ -169,7 +169,7 @@
       min-height: 300px;
       border-radius: 16px;
       overflow: hidden;
-      background: #f7f7f7;
+      background: #f7f5f1;
 
       img {
         width: 100%;
@@ -193,11 +193,11 @@
       border: 2px solid #e0e0e0;
       padding: 0;
       cursor: pointer;
-      background: #f7f7f7;
+      background: #f7f5f1;
       transition: border-color 0.15s;
 
-      &.active { border-color: #111111; }
-      &:hover { border-color: #111111; }
+      &.active { border-color: $ink; }
+      &:hover { border-color: $ink; }
 
       img { width: 100%; height: 100%; object-fit: cover; }
     }
@@ -215,8 +215,8 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #111111;
-      background: #f6f6f6;
+      color: $ink;
+      background: #f6f4f0;
       padding: 3px 12px;
       border-radius: 20px;
       width: fit-content;
@@ -235,7 +235,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background: #f8f8f8;
+      background: #f8f6f2;
       border-radius: 12px;
       padding: 20px;
     }
@@ -264,7 +264,7 @@
       font-family: $font;
       font-size: 22px;
       font-weight: 700;
-      color: #111111;
+      color: $ink;
     }
 
     .service-detail__desc {
@@ -303,7 +303,7 @@
       display: block;
       width: 100%;
       height: 52px;
-      background: #111111;
+      background: $ink;
       color: #ffffff;
       font-family: $font;
       font-size: 15px;
@@ -313,7 +313,7 @@
       line-height: 52px;
       text-decoration: none;
       transition: background 0.2s;
-      &:hover { background: #111111; }
+      &:hover { background: $ink; }
     }
   }
 
@@ -364,7 +364,7 @@
           &:hover {
             cursor: pointer;
             transform: scale(1.05);
-            background-color: rgb(17, 17, 17);
+            background-color: $ink;
             color: #ffffff;
           }
           div {
@@ -395,7 +395,7 @@
           &:hover {
             cursor: pointer;
             transform: scale(1.05);
-            background-color: rgb(17, 17, 17);
+            background-color: $ink;
             color: #ffffff;
           }
           div {

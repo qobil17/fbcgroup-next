@@ -1,0 +1,409 @@
+/** BANNERLAR: bosh sahifa banneri, ichki sahifalar banneri, Xizmatlar sahifasidagi brend kartalari **/
+
+// Banner yo'q sahifalarda qotirilgan navbar uchun joy
+.navbar-spacer {
+  height: 87px;
+}
+
+// ===== BOSH SAHIFA BANNERI =====
+.home-hero {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  margin-top: 87px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background: $ink;
+  font-family: $font;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+
+  &__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 20, 22, 0.88) 0%, rgba(20, 20, 22, 0.62) 45%, rgba(20, 20, 22, 0.15) 100%);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 1300px;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+    padding: 96px 0 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #d9c4a3;
+    &::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: $accent;
+    }
+  }
+
+  &__title {
+    margin: 20px 0 18px;
+    max-width: 680px;
+    font-size: 58px;
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  &__subtitle {
+    margin: 0;
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 56px;
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    max-width: 620px;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    strong {
+      font-size: 32px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+    span {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.62);
+    }
+  }
+
+  // Telefon versiyasi
+  &--mobile {
+    min-height: 0;
+    margin-top: 0;
+    .home-hero__shade {
+      background: linear-gradient(180deg, rgba(20, 20, 22, 0.55) 0%, rgba(20, 20, 22, 0.88) 100%);
+    }
+    .home-hero__inner {
+      max-width: 100%;
+      padding: 56px 20px 32px;
+    }
+    .home-hero__eyebrow {
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      &::before {
+        width: 22px;
+      }
+    }
+    .home-hero__title {
+      font-size: 32px;
+      letter-spacing: -0.5px;
+      margin: 14px 0 12px;
+    }
+    .home-hero__subtitle {
+      font-size: 14px;
+    }
+    .home-hero__actions {
+      margin-top: 24px;
+      gap: 10px;
+      .hero-btn {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 13px 18px;
+        font-size: 14px;
+      }
+    }
+    .home-hero__stats {
+      gap: 0;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 20px;
+      strong {
+        font-size: 24px;
+      }
+      span {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-family: $font;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+
+  &--light {
+    background: #fff;
+    color: $ink;
+    &:hover {
+      background: $accent;
+      color: #fff;
+    }
+  }
+  &--ghost {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #fff;
+    &:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+}
+
+// ===== ICHKI SAHIFALAR BANNERI =====
+.page-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 87px;
+  overflow: hidden;
+  background: $ink;
+  font-family: $font;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+  }
+
+  &__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 20, 22, 0.86) 0%, rgba(20, 20, 22, 0.55) 55%, rgba(20, 20, 22, 0.25) 100%);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 1300px;
+    max-width: calc(100% - 48px);
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 48px;
+    color: #fff;
+  }
+
+  &__crumbs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+      &:hover {
+        color: #fff;
+      }
+    }
+    .current {
+      color: #d9c4a3;
+    }
+  }
+
+  &__title {
+    margin: 12px 0 0;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: #fff;
+  }
+
+  &__subtitle {
+    margin: 12px 0 0;
+    max-width: 620px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  &--mobile {
+    height: 190px;
+    margin-top: 0;
+    .page-banner__inner {
+      max-width: 100%;
+      padding: 0 20px 24px;
+    }
+    .page-banner__title {
+      font-size: 26px;
+    }
+    .page-banner__subtitle {
+      font-size: 13px;
+    }
+    .page-banner__crumbs {
+      font-size: 12px;
+    }
+  }
+}
+
+// ===== XIZMATLAR SAHIFASI: BREND KARTALARI =====
+.service {
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    width: 100%;
+    padding: 64px 0 96px;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 24px 16px 48px;
+    }
+  }
+
+  .brand-card {
+    position: relative;
+    display: block;
+    min-height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    background: $ink;
+    font-family: $font;
+
+    @media (max-width: 900px) {
+      min-height: 340px;
+      border-radius: 16px;
+    }
+
+    &__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    &__shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 20, 22, 0.15) 0%, rgba(20, 20, 22, 0.88) 78%);
+      transition: background 0.4s;
+    }
+
+    &__body {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      @media (max-width: 900px) {
+        padding: 24px;
+      }
+    }
+
+    &__logo {
+      height: 64px;
+      width: auto;
+      align-self: flex-start;
+      margin-bottom: 8px;
+      filter: brightness(0) invert(1);
+    }
+
+    &__tag {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d9c4a3;
+    }
+
+    &__name {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #fff;
+    }
+
+    &__desc {
+      margin: 0;
+      max-width: 440px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      border-bottom: 1px solid $accent;
+      align-self: flex-start;
+      padding-bottom: 4px;
+      transition: gap 0.25s;
+    }
+
+    &:hover {
+      .brand-card__bg {
+        transform: scale(1.05);
+      }
+      .brand-card__link {
+        gap: 14px;
+      }
+    }
+  }
+}

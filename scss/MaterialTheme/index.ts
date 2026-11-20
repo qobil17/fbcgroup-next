@@ -9,12 +9,12 @@ export const light = {
   palette: {
     type: "light",
     background: {
-      default: "#f7f7f7",
+      default: "#faf9f7",
       paper: common.white,
     },
     primary: {
       contrastText: "#ffffff",
-      main: "#111111",
+      main: "#1c1c1e",
     },
     secondary: {
       main: "#555555",

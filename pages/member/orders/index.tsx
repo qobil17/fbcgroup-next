@@ -116,7 +116,7 @@ const MemberOrdersPage = () => {
     return `${y}-${m}-${day}`;
   };
 
-  if (loading) {
+  if (loading && !data) {
     return (
       <Stack className="member-page">
         <div style={{ maxWidth: 820, margin: "0 auto", width: "100%", padding: "32px 0", textAlign: "center" }}>

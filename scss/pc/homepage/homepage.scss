@@ -8,7 +8,7 @@
 
 .skeleton-line {
   border-radius: 4px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, #f0eeea 25%, #e8e6e2 50%, #f0eeea 75%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.4s ease-in-out infinite;
 }
@@ -28,7 +28,7 @@
   &__img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background: linear-gradient(90deg, #f0eeea 25%, #e8e6e2 50%, #f0eeea 75%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.4s ease-in-out infinite;
   }
@@ -44,7 +44,7 @@
     height: 14px;
     border-radius: 4px;
     width: 100%;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background: linear-gradient(90deg, #f0eeea 25%, #e8e6e2 50%, #f0eeea 75%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.4s ease-in-out infinite;
 
@@ -107,7 +107,7 @@
         letter-spacing: 0.6px;
 
         &--new {
-          background: #111111;
+          background: $ink;
           color: #fff;
         }
         &--popular {
@@ -127,7 +127,7 @@
         font-family: $font;
         font-size: 11px;
         font-weight: 700;
-        color: #111111;
+        color: $accent;
         text-transform: uppercase;
         letter-spacing: 0.8px;
       }
@@ -207,12 +207,15 @@
           font-family: $font;
           font-size: 14px;
           font-weight: 500;
-          color: #111111;
+          color: $ink;
           text-decoration: none;
-          transition: gap 0.2s ease;
+          border-bottom: 1px solid $accent;
+          padding-bottom: 2px;
+          transition: gap 0.2s ease, color 0.2s ease;
 
           &:hover {
             gap: 10px;
+            color: $accent-dark;
           }
 
           svg {
@@ -270,10 +273,10 @@
         flex-shrink: 0;
 
         &:hover {
-          background: #111111;
+          background: $ink;
           color: #ffffff;
-          border-color: #111111;
-          box-shadow: 0 4px 14px rgba(17, 17, 17, 0.35);
+          border-color: $ink;
+          box-shadow: 0 4px 14px rgba(28, 28, 30, 0.35);
         }
 
         svg {
@@ -286,7 +289,7 @@
     // HPLINE — light background to separate visually
     // ================================================
     .hpline-services {
-      background: #f9f9f9;
+      background: #f9f7f3;
     }
   }
 
@@ -294,12 +297,12 @@
   // SERVICE CARDS PAGE — banner, sort, grid, pagination
   // ================================================
   .service-cards-page {
-    padding-top: 80px;
+    padding-top: 48px;
 
     .cards-banner {
       width: 100%;
       height: 220px;
-      background: linear-gradient(135deg, #111111 0%, #111111 100%);
+      background: linear-gradient(135deg, $ink 0%, $ink 100%);
     }
 
     .cards-title {
@@ -337,13 +340,13 @@
       transition: all 0.2s ease;
 
       &:hover {
-        border-color: #111111;
-        color: #111111;
+        border-color: $ink;
+        color: $ink;
       }
 
       &--active {
-        background: #111111;
-        border-color: #111111;
+        background: $ink;
+        border-color: $ink;
         color: #ffffff;
 
         &:hover {
@@ -408,7 +411,7 @@
           text-transform: uppercase;
           letter-spacing: 0.6px;
 
-          &--new     { background: #111111; color: #fff; }
+          &--new     { background: $ink; color: #fff; }
           &--popular { background: #f44336; color: #fff; }
         }
 
@@ -423,7 +426,7 @@
           font-family: $font;
           font-size: 11px;
           font-weight: 700;
-          color: #111111;
+          color: $accent;
           text-transform: uppercase;
           letter-spacing: 0.8px;
         }
@@ -488,7 +491,7 @@
 
       &:focus {
         outline: none;
-        border-color: #111111;
+        border-color: $ink;
       }
     }
 
@@ -503,7 +506,7 @@
       padding: 0 18px;
       border-radius: 8px;
       border: none;
-      background: #111111;
+      background: $ink;
       font-family: $font;
       font-size: 13px;
       font-weight: 600;
@@ -512,7 +515,7 @@
       transition: background 0.2s ease;
 
       &:hover {
-        background: #111111;
+        background: $ink;
       }
     }
 
@@ -546,9 +549,9 @@
       }
 
       &.active {
-        background: #111111 !important;
+        background: $ink !important;
         color: #ffffff !important;
-        border-color: #111111 !important;
+        border-color: $ink !important;
       }
     }
   }

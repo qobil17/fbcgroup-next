@@ -5,7 +5,7 @@
 // ── Admin Login Page ─────────────────────────────────────────
 .admin-login-page {
   min-height: 100vh;
-  background: #111111;
+  background: $ink;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
 }
 
 .admin-login-card {
-  background: #111111;
+  background: $ink;
   border-radius: 16px;
   padding: 44px 48px;
   width: 100%;
@@ -103,7 +103,7 @@
   &__btn {
     width: 100%;
     height: 48px;
-    background: #111111;
+    background: $ink;
     border: none;
     border-radius: 10px;
     color: #ffffff;
@@ -114,8 +114,8 @@
     margin-top: 6px;
     transition: background 0.2s;
 
-    &:hover { background: #111111; }
-    &:disabled { background: #111111; opacity: 0.55; cursor: not-allowed; }
+    &:hover { background: $ink; }
+    &:disabled { background: $ink; opacity: 0.55; cursor: not-allowed; }
   }
 
   &__dev-hint {
@@ -159,7 +159,7 @@
   left: 0;
   width: 240px;
   height: 100vh;
-  background: #111111;
+  background: $ink;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -249,7 +249,7 @@
 .admin-content {
   margin-left: 240px;
   min-height: 100vh;
-  background: #f7f7f7;
+  background: #f7f5f1;
   padding: 32px;
   flex: 1;
 }
@@ -258,7 +258,7 @@
 .admin-page-title {
   font-size: 22px;
   font-weight: 700;
-  color: #111111;
+  color: $ink;
   margin: 0 0 24px;
   font-family: $font;
 }
@@ -290,7 +290,7 @@
     font-size: 22px;
     flex-shrink: 0;
 
-    &--blue   { background: #f7f7f7; }
+    &--blue   { background: #f7f5f1; }
     &--green  { background: #f0fdf4; }
     &--purple { background: #faf5ff; }
   }
@@ -298,7 +298,7 @@
   &__value {
     font-size: 30px;
     font-weight: 700;
-    color: #111111;
+    color: $ink;
     line-height: 1;
     font-family: $font;
   }
@@ -324,18 +324,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0eeea;
 
   &__title {
     font-family: $font;
     font-size: 16px;
     font-weight: 600;
-    color: #111111;
+    color: $ink;
   }
 }
 
 .admin-add-btn {
-  background: #111111;
+  background: $ink;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -346,7 +346,7 @@
   cursor: pointer;
   transition: background 0.15s;
 
-  &:hover { background: #111111; }
+  &:hover { background: $ink; }
 }
 
 table.admin-table {
@@ -354,7 +354,7 @@ table.admin-table {
   border-collapse: collapse;
 
   thead tr {
-    background: #f8f8f8;
+    background: #f8f6f2;
   }
 
   th {
@@ -374,7 +374,7 @@ table.admin-table {
     font-family: $font;
     font-size: 13px;
     color: #444;
-    border-bottom: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f5f1;
     vertical-align: middle;
   }
 
@@ -383,7 +383,7 @@ table.admin-table {
   }
 
   tbody tr:hover td {
-    background: #f9f9f9;
+    background: #f9f7f3;
   }
 }
 
@@ -401,7 +401,7 @@ table.admin-table {
   &--ACTIVE  { background: #f0fdf4; color: #16a34a; }
   &--FINISH  { background: #f0fdf4; color: #16a34a; }
   &--PAUSE   { background: #fefce8; color: #ca8a04; }
-  &--PROCESS { background: #f7f7f7; color: #111111; }
+  &--PROCESS { background: #f7f5f1; color: $ink; }
   &--CANCELLED { background: #fff5f5; color: #dc2626; }
   &--BLOCK   { background: #fff5f5; color: #dc2626; }
   &--DELETE  { background: #f3f4f6; color: #9ca3af; }
@@ -429,7 +429,7 @@ table.admin-table {
 
   &:hover { opacity: 0.78; }
 
-  &--edit    { background: #f7f7f7; color: #111111; }
+  &--edit    { background: #f7f5f1; color: $ink; }
   &--delete  { background: #fff5f5; color: #ef4444; }
   &--block   { background: #fffbeb; color: #f59e0b; }
   &--unblock { background: #f0fdf4; color: #22c55e; }
@@ -449,7 +449,7 @@ table.admin-table {
 
   &:focus {
     outline: none;
-    border-color: #111111;
+    border-color: $ink;
   }
 }
 
@@ -460,7 +460,7 @@ table.admin-table {
   align-items: center;
   gap: 6px;
   padding: 16px 24px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #f0eeea;
 }
 
 .admin-page-btn {
@@ -480,13 +480,13 @@ table.admin-table {
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 
   &:hover:not(:disabled) {
-    border-color: #111111;
-    color: #111111;
+    border-color: $ink;
+    color: $ink;
   }
 
   &.active {
-    background: #111111;
-    border-color: #111111;
+    background: $ink;
+    border-color: $ink;
     color: #ffffff;
   }
 
@@ -522,7 +522,7 @@ table.admin-table {
     font-family: $font;
     font-size: 18px;
     font-weight: 700;
-    color: #111111;
+    color: $ink;
     margin: 0 0 24px;
   }
 
@@ -534,7 +534,7 @@ table.admin-table {
   }
 
   &__cancel {
-    background: #f7f7f7;
+    background: #f7f5f1;
     color: #555;
     border: none;
     border-radius: 8px;
@@ -544,11 +544,11 @@ table.admin-table {
     font-weight: 500;
     cursor: pointer;
 
-    &:hover { background: #f3f3f3; }
+    &:hover { background: #f3f1ed; }
   }
 
   &__submit {
-    background: #111111;
+    background: $ink;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -558,7 +558,7 @@ table.admin-table {
     font-weight: 600;
     cursor: pointer;
 
-    &:hover { background: #111111; }
+    &:hover { background: $ink; }
     &:disabled { background: #c8c8c8; cursor: not-allowed; }
   }
 }
@@ -592,13 +592,13 @@ table.admin-table {
   font-family: $font;
   font-size: 14px;
   color: #181a20;
-  background: #fafafa;
+  background: #faf8f4;
   width: 100%;
   transition: border-color 0.2s, background 0.2s;
 
   &:focus {
     outline: none;
-    border-color: #111111;
+    border-color: $ink;
     background: #ffffff;
   }
 
@@ -663,8 +663,8 @@ table.admin-table {
   height: 80px;
   border-radius: 8px;
   border: 2px dashed #dedede;
-  background: #f7f7f7;
-  color: #111111;
+  background: #f7f5f1;
+  color: $ink;
   font-family: $font;
   font-size: 12px;
   font-weight: 600;
@@ -674,7 +674,7 @@ table.admin-table {
   flex-shrink: 0;
 
   &:hover {
-    background: #f3f3f3;
+    background: #f3f1ed;
     border-color: #c8c8c8;
   }
 }
@@ -733,6 +733,6 @@ table.admin-table {
 .admin-btn--sm {
   padding: 3px 10px;
   font-size: 11px;
-  background: #f7f7f7;
-  color: #111111;
+  background: #f7f5f1;
+  color: $ink;
 }

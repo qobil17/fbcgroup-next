@@ -1,9 +1,9 @@
 // ─── Chatbot Widget ────────────────────────────────────────────────────────────
 
-$chat-primary: #111111;
-$chat-primary-dark: #111111;
-$chat-bot-bg: #f7f7f7;
-$chat-user-bg: #111111;
+$chat-primary: $ink;
+$chat-primary-dark: $ink;
+$chat-bot-bg: #f7f5f1;
+$chat-user-bg: $ink;
 $chat-panel-bg: #ffffff;
 $chat-border: #e0e0e0;
 $chat-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
@@ -26,7 +26,7 @@ $chat-font: "Poppins", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(17, 17, 17, 0.45);
+  box-shadow: 0 4px 20px rgba(28, 28, 30, 0.45);
   transition:
     background 0.2s,
     transform 0.15s,
@@ -43,7 +43,7 @@ $chat-font: "Poppins", sans-serif;
   &:hover {
     background: $chat-primary-dark;
     transform: scale(1.08);
-    box-shadow: 0 6px 24px rgba(17, 17, 17, 0.55);
+    box-shadow: 0 6px 24px rgba(28, 28, 30, 0.55);
   }
 
   &:active {
@@ -150,7 +150,7 @@ $chat-font: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #f9f9f9;
+  background: #f9f7f3;
 
   &__empty {
     text-align: center;
@@ -197,7 +197,7 @@ $chat-font: "Poppins", sans-serif;
   &--bot {
     .chatbot-bubble__text {
       background: $chat-bot-bg;
-      color: #111111;
+      color: $ink;
       border-radius: 16px 16px 16px 4px;
     }
   }
@@ -247,7 +247,7 @@ $chat-font: "Poppins", sans-serif;
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: #111111;
+    background: $ink;
     border-radius: 50%;
     animation: typingDot 1.2s infinite ease-in-out;
 
@@ -281,7 +281,7 @@ $chat-font: "Poppins", sans-serif;
   font-family: $chat-font;
   font-size: 13.5px;
   color: #1a1a1a;
-  background: #f8f8f8;
+  background: #f8f6f2;
   outline: none;
   transition: border-color 0.2s;
 

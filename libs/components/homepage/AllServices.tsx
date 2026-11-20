@@ -47,7 +47,7 @@ const AllServices = () => {
 
   const services = data?.getServices?.list ?? [];
 
-  if (loading) {
+  if (loading && !data) {
     return (
       <Stack className="all-services">
         <Stack className="container">

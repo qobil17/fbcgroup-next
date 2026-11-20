@@ -87,9 +87,18 @@
     "hoursLabel": "Ish vaqti",
     "quickLinksTitle": "Tezkor Havolalar",
     "quickLinks": [
-      { "label": "Buyurtma berish", "href": "/order" },
-      { "label": "Xizmatlar", "href": "/service" },
-      { "label": "Biz haqimizda", "href": "/about" }
+      {
+        "label": "Buyurtma berish",
+        "href": "/order"
+      },
+      {
+        "label": "Xizmatlar",
+        "href": "/service"
+      },
+      {
+        "label": "Biz haqimizda",
+        "href": "/about"
+      }
     ]
   },
   "order": {
@@ -277,7 +286,12 @@
     "typeInstallation": "O'rnatish",
     "typeFullProject": "To'liq loyiha",
     "areaExterior": "Tashqi",
-    "areaInterior": "Ichki"
+    "areaInterior": "Ichki",
+    "hplineTag": "Fasad qoplamalari",
+    "hplineDesc": "HPL panellar, granit, keramogranit va alyukobond bilan binoning tashqi ko'rinishi va himoyasi.",
+    "alifTag": "Yoritish tizimlari",
+    "alifDesc": "Fasad, interyer va dekorativ LED yoritish hamda avariya yoritgichlari.",
+    "view": "Ko'rish"
   },
   "cards": {
     "newest": "Eng yangi",
@@ -286,5 +300,12 @@
     "next": "Keyingi",
     "noCards": "Hech qanday xizmat topilmadi",
     "loading": "Yuklanmoqda..."
+  },
+  "hero": {
+    "eyebrow": "O'zbekiston bo'ylab fasad va yoritish",
+    "title": "Binolaringizga yangi qiyofa",
+    "subtitle": "HPL panellar, granit va alyukobond fasadlar hamda zamonaviy LED yoritish — loyihalashdan o'rnatishgacha bir jamoada.",
+    "ctaServices": "Xizmatlarni ko'rish",
+    "ctaOrder": "Buyurtma berish"
   }
 }

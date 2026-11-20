@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, Link, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import { useLocaleContext } from "../../lib/LocaleContext";
@@ -13,6 +14,9 @@ const LOCALE_META: { value: Locale; code: string; label: string }[] = [
   { value: "ru", code: "RU", label: "Русский" },
   { value: "en", code: "EN", label: "English" },
 ];
+
+// Survives page navigations: after the first client mount the auth slot can render immediately
+let appHasMounted = false;
 
 const Top = () => {
   const device = useDeviceDetect();
@@ -34,8 +38,8 @@ const Top = () => {
 
   // After mount, server and client have rendered the same placeholder once.
   // Now it's safe to render the real auth content without hydration mismatch.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+  const [mounted, setMounted] = useState(appHasMounted);
+  useEffect(() => { appHasMounted = true; setMounted(true); }, []);
 
   useEffect(() => {
     if (!avatarLightbox) return;
@@ -237,10 +241,10 @@ const Top = () => {
           {/* Nav links — suppressHydrationWarning because translated text differs
               between server (always "uz") and client first render (saved locale) */}
           <Box component={"div"} className={"router-box"} suppressHydrationWarning>
-            <Link href={"/"}><div suppressHydrationWarning>{t("home")}</div></Link>
-            <Link href={"/service"}><div suppressHydrationWarning>{t("services")}</div></Link>
-            <Link href={"/about"}><div suppressHydrationWarning>{t("about")}</div></Link>
-            <Link href={"/help"}><div suppressHydrationWarning>{t("help")}</div></Link>
+            <Link href={"/"}><div className={router.pathname === "/" ? "active" : ""} suppressHydrationWarning>{t("home")}</div></Link>
+            <Link href={"/service"}><div className={router.pathname.startsWith("/service") ? "active" : ""} suppressHydrationWarning>{t("services")}</div></Link>
+            <Link href={"/about"}><div className={router.pathname.startsWith("/about") ? "active" : ""} suppressHydrationWarning>{t("about")}</div></Link>
+            <Link href={"/help"}><div className={router.pathname.startsWith("/help") ? "active" : ""} suppressHydrationWarning>{t("help")}</div></Link>
           </Box>
 
           {/* Right side */}

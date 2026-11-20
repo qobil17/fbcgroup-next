@@ -44,7 +44,7 @@ const AlifLightServices = () => {
 
   const services = data?.getServices?.list ?? [];
 
-  if (loading) {
+  if (loading && !data) {
     return (
       <Stack className="alif-services">
         <Stack className="container">
