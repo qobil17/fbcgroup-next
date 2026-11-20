@@ -2,11 +2,12 @@ import { Box, Link, Stack } from "@mui/material";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import ServiceCard from "./ServiceCard";
-import { useState } from "react";
+import { useServices } from "../../hooks/useServices";
 
 const HplineServices = () => {
-  const [hplineServices] = useState<number[]>([1, 2, 3, 4, 5, 6, 7]);
+  const { services: hplineServices, loading } = useServices({ collection: "HPLINE", limit: 8 });
   return (
     <Stack className="hpline-services">
       <Stack className="container">
@@ -25,10 +26,11 @@ const HplineServices = () => {
         </Stack>
         <Stack className="hpline-card-box">
           {hplineServices.length === 0 ? (
-            <Box className="empty-list">Xizmatlar mavjud emas</Box>
+            <Box className="empty-list">{loading ? "Yuklanmoqda..." : "Hozircha xizmatlar mavjud emas"}</Box>
           ) : (
             <Swiper
               className="hpline-service-swiper"
+              modules={[Navigation]}
               spaceBetween={20}
               slidesPerView={4}
               navigation={{
@@ -45,9 +47,9 @@ const HplineServices = () => {
                 el: ".swiper-hpline-pagination",
               }}
             >
-              {hplineServices.map((_, index) => (
-                <SwiperSlide className="hpline-service-slide">
-                  <ServiceCard />
+              {hplineServices.map((service) => (
+                <SwiperSlide key={service._id} className="hpline-service-slide">
+                  <ServiceCard service={service} />
                 </SwiperSlide>
               ))}
             </Swiper>

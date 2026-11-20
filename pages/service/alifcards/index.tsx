@@ -1,11 +1,6 @@
-import { Stack } from "@mui/material";
 import withLayoutBasic from "../../../libs/components/layout/LayoutBasic";
+import CollectionList from "../../../libs/components/service/CollectionList";
 
-const AlifAllCards = () => {
-  return (
-    <Stack>
-      <h1>ALIF LIGHT XIZMATLARI</h1>
-    </Stack>
-  );
-};
+const AlifAllCards = () => <CollectionList collection="ALIF" title="ALIF LIGHT XIZMATLARI" />;
+
 export default withLayoutBasic(AlifAllCards);

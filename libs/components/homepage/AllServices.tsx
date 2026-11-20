@@ -2,13 +2,14 @@ import { Box, Stack } from "@mui/material";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useState } from "react";
+import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import ServiceCard from "./ServiceCard";
+import { useServices } from "../../hooks/useServices";
 
 const AllServices = () => {
-  const [allServices] = useState<number[]>([1, 2, 3, 4, 5, 6, 7]);
+  const { services: allServices, loading } = useServices({ collection: undefined, limit: 8 });
 
   return (
     <Stack className="all-services">
@@ -30,10 +31,11 @@ const AllServices = () => {
         {/* ===== CARDS ===== */}
         <Stack className="card-box">
           {allServices.length === 0 ? (
-            <Box className="empty-list">Xizmat mavjud emas</Box>
+            <Box className="empty-list">{loading ? "Yuklanmoqda..." : "Hozircha xizmatlar mavjud emas"}</Box>
           ) : (
             <Swiper
               className="all-service-swiper"
+              modules={[Navigation]}
               spaceBetween={20}
               slidesPerView={4}
               navigation={{
@@ -50,9 +52,9 @@ const AllServices = () => {
                 el: ".swiper-all-pagination",
               }}
             >
-              {allServices.map((_, index) => (
-                <SwiperSlide key={index} className="all-service-slide">
-                  <ServiceCard />
+              {allServices.map((service) => (
+                <SwiperSlide key={service._id} className="all-service-slide">
+                  <ServiceCard service={service} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -64,76 +66,3 @@ const AllServices = () => {
 };
 
 export default AllServices;
-
-// import { Box, Stack } from "@mui/material";
-// import WestIcon from "@mui/icons-material/West";
-// import EastIcon from "@mui/icons-material/East";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { useState } from "react";
-// import ServiceCard from "./ServiceCard";
-
-// const AllServices = () => {
-//   const [allServices, setAllServices] = useState<number[]>([1, 2, 3, 4]);
-
-//   return (
-//     <Stack className="all-services">
-//       <Stack className="container">
-//         <Stack className="info-box">
-//           <Box className={"left"}>
-//             <span>All Service</span>
-//           </Box>
-//           <Box className={"right"}>
-//             <div className={"pagination-box"}>
-//               <WestIcon className={"swiper-all-prev"} />
-//               <div className={"swiper-all-pagination"}></div>
-//               <EastIcon className={"swiper-all-next"} />
-//             </div>
-//           </Box>
-//         </Stack>
-//         <Stack className={"card-box"}>
-//           {allServices.length === 0 ? (
-//             <Box component={"div"} className={"empty-list"}>
-//               Services Empty
-//             </Box>
-//           ) : (
-//             <Stack className="all-service-swiper">
-//               {" "}
-//               {allServices.map((allServices, index) => {
-//                 return <ServiceCard />;
-//               })}
-//             </Stack>
-//           )}
-//         </Stack>
-//       </Stack>
-//     </Stack>
-//   );
-// };
-
-// export default AllServices;
-//  <Stack className="all-service-swiper">
-//               {" "}
-//               {allServices.map((allServices, index) => {
-//                 return <ServiceCard />;
-//               })}
-//             </Stack>
-
-// <Swiper
-//               className={"all-service-swiper"}
-//               slidesPerView={"auto"}
-//               spaceBetween={1}
-//               navigation={{
-//                 nextEl: ".swiper-all-next",
-//                 prevEl: ".swiper-all-prev",
-//               }}
-//               pagination={{
-//                 el: ".swiper-all-pagination",
-//               }}
-//             >
-//               {allServices.map((allServices, index) => {
-//                 return (
-//                   <SwiperSlide className={"all-service-slide"}>
-//                     <ServiceCard />
-//                   </SwiperSlide>
-//                 );
-//               })}
-//             </Swiper>

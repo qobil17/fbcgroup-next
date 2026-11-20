@@ -1,0 +1,234 @@
+/** Backend bilan ishlaydigan sahifalar: ro'yxat, batafsil, kirish, buyurtmalar, biz haqimizda **/
+#pc-wrap {
+  .collection-page,
+  .detail-page,
+  .auth-page,
+  .orders-page,
+  .about-page {
+    padding: 60px 0 100px;
+    font-family: $font;
+
+    .container {
+      flex-direction: column;
+      max-width: calc(100% - 40px);
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin: 0 0 28px;
+    }
+  }
+
+  .collection-empty,
+  .detail-center {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: #666;
+  }
+
+  // ---- Xizmatlar ro'yxati ----
+  .collection-page {
+    .collection-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+      h1 {
+        margin: 0;
+      }
+    }
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+      .service-card-box {
+        width: 100%;
+      }
+    }
+  }
+
+  // ---- Xizmat batafsil ----
+  .detail-page {
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    .detail-gallery {
+      .main-img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 14px;
+        display: block;
+      }
+      .thumbs {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+        img {
+          width: 84px;
+          height: 64px;
+          object-fit: cover;
+          border-radius: 8px;
+          cursor: pointer;
+          opacity: 0.6;
+          border: 2px solid transparent;
+          &.active {
+            opacity: 1;
+            border-color: rgb(84, 144, 255);
+          }
+        }
+      }
+    }
+    .detail-info {
+      .tag {
+        display: inline-block;
+        background: #111;
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 6px;
+      }
+      h1 {
+        margin: 14px 0 20px;
+      }
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 20px;
+        div {
+          background: #f6f7f9;
+          border-radius: 10px;
+          padding: 10px 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        span {
+          font-size: 12px;
+          color: #888;
+        }
+        b {
+          font-size: 15px;
+          font-weight: 600;
+        }
+      }
+      .desc {
+        color: #444;
+        line-height: 1.6;
+        white-space: pre-line;
+      }
+    }
+    .order-box {
+      margin-top: 24px;
+      padding: 22px;
+      border: 1px solid #e3e3e3;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      h3 {
+        margin: 0;
+        font-size: 20px;
+      }
+    }
+  }
+
+  // ---- Kirish / ro'yxatdan o'tish ----
+  .auth-page {
+    .auth-card {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  // ---- Buyurtmalarim ----
+  .orders-page {
+    .orders-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .order-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 16px 20px;
+      border: 1px solid #e6e6e6;
+      border-radius: 12px;
+      .order-main {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        span {
+          color: #777;
+          font-size: 14px;
+        }
+      }
+      .order-side {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .date {
+          color: #888;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  // ---- Biz haqimizda ----
+  .about-page {
+    p {
+      max-width: 780px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #444;
+    }
+    .about-brands {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+      .brand {
+        flex: 1 1 280px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 22px;
+        border: 1px solid #e6e6e6;
+        border-radius: 14px;
+        text-decoration: none;
+        color: #222;
+        img {
+          height: 64px;
+          width: auto;
+        }
+      }
+    }
+  }
+}

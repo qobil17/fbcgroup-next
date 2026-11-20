@@ -2,11 +2,12 @@ import { Box, Link, Stack } from "@mui/material";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import ServiceCard from "./ServiceCard";
-import { useState } from "react";
+import { useServices } from "../../hooks/useServices";
 
 const AlifLightServices = () => {
-  const [aliflightServices] = useState<number[]>([1, 2, 3, 4, 5, 6, 7]);
+  const { services: aliflightServices, loading } = useServices({ collection: "ALIF", limit: 8 });
   return (
     <Stack className="alif-services">
       <Stack className="container">
@@ -25,10 +26,11 @@ const AlifLightServices = () => {
         </Stack>
         <Stack className="alif-card-box">
           {aliflightServices.length === 0 ? (
-            <Box className="empty-list">Services Empty</Box>
+            <Box className="empty-list">{loading ? "Yuklanmoqda..." : "Hozircha xizmatlar mavjud emas"}</Box>
           ) : (
             <Swiper
               className="alif-service-swiper"
+              modules={[Navigation]}
               spaceBetween={20}
               slidesPerView={4}
               navigation={{
@@ -45,9 +47,9 @@ const AlifLightServices = () => {
                 el: ".swiper-alif-pagination",
               }}
             >
-              {aliflightServices.map((_, index) => (
-                <SwiperSlide className="alif-service-slide">
-                  <ServiceCard />
+              {aliflightServices.map((service) => (
+                <SwiperSlide key={service._id} className="alif-service-slide">
+                  <ServiceCard service={service} />
                 </SwiperSlide>
               ))}
             </Swiper>

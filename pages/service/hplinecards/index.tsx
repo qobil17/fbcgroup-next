@@ -1,11 +1,6 @@
-import { Stack } from "@mui/material";
 import withLayoutBasic from "../../../libs/components/layout/LayoutBasic";
+import CollectionList from "../../../libs/components/service/CollectionList";
 
-const HplineAllCards = () => {
-  return (
-    <Stack>
-      <h1>HPLINE FASAD XIZMATLARI</h1>
-    </Stack>
-  );
-};
+const HplineAllCards = () => <CollectionList collection="HPLINE" title="HPLINE FASAD XIZMATLARI" />;
+
 export default withLayoutBasic(HplineAllCards);
