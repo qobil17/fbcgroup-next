@@ -8,7 +8,7 @@ import {
   ADMIN_REMOVE_PARTNER,
   ADMIN_UPDATE_PARTNER,
   Partner,
-} from "../../../lib/projects";
+} from "../../../lib/partners";
 
 // Hamkorlar — admin boshqaruvi
 

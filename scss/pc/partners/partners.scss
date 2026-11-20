@@ -1,0 +1,160 @@
+/** HAMKORLAR — kompaniya hamkorlari bo'limi ("Biz haqimizda" sahifasida) **/
+
+// ===== Bo'lim konteyneri =====
+.home-block {
+  width: 100%;
+  padding: 88px 0;
+  font-family: $font;
+  background: #fff;
+
+  &--partners {
+    background: $stone;
+  }
+
+  &__inner {
+    width: 1300px;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+
+    &--center {
+      justify-content: center;
+      text-align: center;
+      .home-block__eyebrow {
+        justify-content: center;
+      }
+    }
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: $accent;
+  }
+
+  &__title {
+    margin: 10px 0 0;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    color: $ink;
+  }
+
+  &__sub {
+    margin: 10px 0 0;
+    font-size: 15px;
+    color: $muted;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $ink;
+    text-decoration: none;
+    border-bottom: 1px solid $accent;
+    padding-bottom: 3px;
+    white-space: nowrap;
+    transition: gap 0.2s, color 0.2s;
+    &:hover {
+      gap: 12px;
+      color: $accent-dark;
+    }
+  }
+
+  @media (max-width: 900px) {
+    padding: 48px 0;
+    &__inner {
+      max-width: calc(100% - 32px);
+    }
+    &__head {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      &--center {
+        align-items: center;
+      }
+    }
+    &__title {
+      font-size: 24px;
+    }
+  }
+}
+
+// ===== Hamkorlar =====
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; // to'liq bo'lmagan oxirgi qator o'rtada turadi
+  gap: 16px;
+
+  .partner-tile {
+    flex: 0 0 calc((100% - 5 * 16px) / 6);
+  }
+
+  @media (max-width: 1100px) {
+    .partner-tile {
+      flex-basis: calc((100% - 3 * 16px) / 4);
+    }
+  }
+  @media (max-width: 640px) {
+    gap: 12px;
+    .partner-tile {
+      flex-basis: calc((100% - 12px) / 2);
+    }
+  }
+}
+
+.partner-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 140px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid $stone-2;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+
+  img {
+    width: 100%;
+    height: 62px; // o'lchami yozilmagan SVG logotiplar ham ko'rinadi
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.75;
+    transition: filter 0.3s, opacity 0.3s;
+  }
+
+  &__name {
+    font-family: $font;
+    font-size: 12px;
+    color: $muted;
+    text-align: center;
+  }
+
+  &:hover {
+    border-color: $accent;
+    box-shadow: 0 8px 24px rgba(28, 28, 30, 0.06);
+    img {
+      filter: none;
+      opacity: 1;
+    }
+  }
+}

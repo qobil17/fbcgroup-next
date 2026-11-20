@@ -9,8 +9,7 @@
     "userMenuTitle": "Profile",
     "editProfile": "Edit Profile",
     "myOrders": "My Orders",
-    "logout": "Sign Out",
-    "projects": "Projects"
+    "logout": "Sign Out"
   },
   "footer": {
     "tagline": "Fast, quality service",
@@ -308,26 +307,6 @@
     "subtitle": "HPL panels, granite, aluminium composite facades and modern LED lighting — from design to installation by one team.",
     "ctaServices": "View services",
     "ctaOrder": "Request a quote"
-  },
-  "projects": {
-    "title": "Completed work",
-    "subtitle": "Projects we have delivered: photos and a short report",
-    "latest": "Latest projects",
-    "viewAll": "All projects",
-    "all": "All",
-    "empty": "No projects added yet",
-    "loading": "Loading...",
-    "notFound": "Project not found",
-    "back": "All projects",
-    "location": "Location",
-    "date": "Date",
-    "direction": "Category",
-    "photos": "Photos",
-    "views": "Views",
-    "orderCta": "Need a similar project?",
-    "orderBtn": "Request a quote",
-    "prev": "Previous",
-    "next": "Next"
   },
   "partners": {
     "title": "Our partners",

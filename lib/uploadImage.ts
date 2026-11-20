@@ -12,7 +12,7 @@ const UPLOAD_BASE =
  */
 export async function uploadImage(
   file: File,
-  target: "members" | "services" | "projects" | "partners",
+  target: "members" | "services" | "partners",
   token: string
 ): Promise<string> {
   const operations = JSON.stringify({
@@ -81,7 +81,7 @@ export function validateImageFile(file: File): string | null {
 /** Bir nechta rasmni ketma-ket yuklaydi; har biridan keyin onProgress chaqiriladi. */
 export async function uploadImages(
   files: File[],
-  target: "members" | "services" | "projects" | "partners",
+  target: "members" | "services" | "partners",
   token: string,
   onProgress?: (done: number, total: number) => void
 ): Promise<string[]> {

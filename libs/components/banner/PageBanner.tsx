@@ -7,8 +7,6 @@ const PAGES: { match: (p: string) => boolean; title: string; image: "hpline" | "
   { match: (p) => p === "/service/hplinecards", title: "home.hplineServices", image: "hpline" },
   { match: (p) => p === "/service/alifcards", title: "home.alifServices", image: "alif" },
   { match: (p) => p.startsWith("/service"), title: "nav.services", image: "hpline" },
-  { match: (p) => p === "/projects", title: "projects.title", image: "hpline" },
-  { match: (p) => p.startsWith("/projects/"), title: "projects.title", image: "hpline" },
   { match: (p) => p === "/about", title: "nav.about", image: "alif" },
   { match: (p) => p === "/help", title: "nav.help", image: "hpline" },
   { match: (p) => p === "/member/orders", title: "nav.myOrders", image: "hpline" },

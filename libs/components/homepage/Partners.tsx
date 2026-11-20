@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
-import { GET_PARTNERS, Partner } from "../../../lib/projects";
+import { GET_PARTNERS, Partner } from "../../../lib/partners";
 import { getImageUrl } from "../../../lib/uploadImage";
 
 // Hamkorlar logotiplari. Admin hamkor qo'shmaguncha bo'lim ko'rinmaydi.
